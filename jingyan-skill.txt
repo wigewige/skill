@@ -1,0 +1,118 @@
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+Superfetch  双击Superfetch服务，把服务的启动类型由“自动”改为“手动”，然后保存退出；
+
+在本地服务列表中找到两个服务【HomeGroup Listener】和【HomeGroup Provider】两个服务，如下图：
+分别双击这两个服务，停止服务，然后将启动类型更改为“禁用”，然后应用保存设置。
+
+接着在窗口下方“关机设置”中取消勾选第一项“启用快速启动（推荐）”，点击“保存修改”即可。
+
+
+Win10系统下怎么禁止同步主机session
+　　具体方法：
+　　1、按下WIN+R调出运行，然后输入 regedit 回车;
+　　2、在注册表编辑器中定位到：HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServices;
+　　3、找到OneSyncSvc、OneSyncSvc_Session1、UserDataSvc、UserDataSvc_Session1将start值改为4;
+　　4、退出注册表编辑器，然后重启Win10系统即可。
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+ubuntu全屏
+
+虚拟机全屏，
+一般安装vmare tools就可以了
+如还不行，再安装
+open-vm-tools
+open-vm-tools-desktop
+open-vm-tools-lts-trusty-desktop
+
+
+
+虚拟机不能全屏，
+安装open-vm-toos没有，重新安装vmware tools也仍然不能全屏，
+后来在 /vmware-tools-distrib/bin/vmware-uninstall-tools.pl卸载了vmware tools后，又重新vmware-install.pl安装了vmware tools，还是不正常，
+而且启动时还弹出“VMware Tools 启动脚本未能在虚拟机中成功运行”的错误窗口，vmware关机、重启快捷键窗口提示都不支持了
+sudo /usr/bin/vmware-uninstall-tools.pl 
+
+
+最终sudo apt-get install open-vm-tools-lts-trusty-desktop还失败，提示没有正常卸载，
+我就sudo apt-get purge open-vm-tools，然后再安装sudo apt-get install open-vm-tools就可以了，安装是安装了，但重启还是不能全屏，不过之前的“VMware Tools 启动脚本未能在虚拟机中成功运行”的错误窗口没有了
+接着又试了下sudo apt-get install open-vm-tools-lts-trusty-desktop就成功了，终于可以实现全屏了
+
+之前应该是open-vm-tools跟vmware tools有冲突，而open-vm-tools没有完整清除有关
+ 
+
+
+单击 安装 将 VMware Tools 安装程序 CD 连接到虚拟机。
+在客户机中装载虚拟 CD 驱动器，解压缩安装程序，然后执行 vmware-install.pl 安装 VMware Tools。
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+stdout
+EOF
+because of stdio.h
+
+
+struct sockaddr_in
+AF_INET
+SOCK_STREAM
+because of    #include <netinet/in.h>
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+通过网页app.ifu升级，ip地址信息会保留，仍是10.0.39.231
+
+
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+SI if else 行缩进自动对齐-------------Options -> Document Options -> Auto Indent -> smart indent options
+
+SI行号----View -> Line Numbers
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+每次uboot下升级完Server.squashfs都会改回ip为192.168.1.18
+需要网页下重新配一遍ip等
+10.0.39.231
+255.255.248.0
+10.0.32.1
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+/tmp # cat /proc/mtd 
+dev:    size   erasesize  name
+mtd0: 00040000 00010000 "boot"
+mtd1: 001c0000 00010000 "kernel"
+mtd2: 00180000 00010000 "rootfs"
+mtd3: 00080000 00010000 "config"
+mtd4: 00400000 00010000 "data"
+/tmp # 
+
+
+
+cd /tmp/
+tftp -gr Server.squashfs 10.0.39.226
+cp Server.squashfs /dev/mtd4
+sync 
+ 
+

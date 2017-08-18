@@ -1,0 +1,58 @@
+
+  在烧写程序前，首先确定设备flash中已有可用的uboot，且已经按照步骤0设置了RMII模式下的mdio_intf变量，然后设置tftp服务器ip和设备ip，
+ 
+  例如：
+       setenv serverip 192.168.1.20
+       setenv ipaddr   192.168.1.18
+       setenv netmask  255.255.255.0
+       saveenv
+  还可以通过ping 192.168.1.20指令检查网络是否畅通，若ping命令卡死可使用Ctrl+C退出重新执行ping命令。
+
+########################################################################################
+                     SPI flash 烧写指导  jffs2文件系统
+########################################################################################
+
+1) 地址空间说明(带括号的分区为初始化烧写分区):
+	  256K      1792K       1024K      2048K     11264K
+	 (uboot)   (kernel)    (rootfs)   (config)   (data)
+	以下的操作均基于图示的地址空间分配，您也可以根据实际情况进行调整。
+2）烧写u-boot(已有u-boot可省略本步)
+	mw.b 82000000 ff 40000
+	tftp 0x82000000 u-boot-hi3518ev200.bin
+	sf probe 0
+	sf erase 0 0x40000
+	sf write 82000000 0 40000
+3）烧写内核
+	mw.b 82000000 ff 1c0000
+	tftp 82000000 uImage_hi3518ev200
+	sf probe 0
+	sf erase 40000 0x1c0000
+	sf write 82000000 40000 1c0000
+4) 烧写文件系统
+	mw.b 82000000 ff 180000
+	tftp 82000000 rootfs.jffs2
+	sf probe 0
+	sf erase 200000 0x180000
+	sf write 82000000 200000 0x180000
+5) 烧写应用程序
+	mw.b 82000000 ff b00000
+	tftp 82000000 Server.squashfs             or    loady 0x82000000   -- transfer - Send Ymodem... 选择文件 Add OK   后面操作一样，擦/写flash
+	sf probe 0
+	sf erase 380000 0xc80000
+	sf write 82000000 500000 0xb00000
+	若是8M的flash，使用下面的命令
+	mw.b 82000000 ff 400000
+	tftp 82000000 Server.squashfs
+	sf probe 0
+	sf erase 380000 0x480000
+	sf write 82000000 400000 0x400000
+6）设置启动参数
+	setenv bootargs 'mem=32M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=jffs2 mtdparts=hi_sfc:256K(boot),1792K(kernel),1536K(rootfs),1536K(config),11264K(data)'
+	若是8M的flash，使用下面的命令
+	setenv bootargs 'mem=32M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=jffs2 mtdparts=hi_sfc:256K(boot),1792K(kernel),1536K(rootfs),512K(config),4096K(data)'
+	setenv bootcmd 'sf probe 0;sf read 0x82000000 0x40000 0x1c0000;bootm 0x82000000'
+	setenv board hi3518ev200
+       	saveenv
+
+7) 重启
+	reset

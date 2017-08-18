@@ -1,0 +1,59 @@
+﻿
+  在烧写程序前，首先确定设备flash中已有可用的uboot，且已经按照步骤0设置了RMII模式下的mdio_intf变量，然后设置tftp服务器ip和设备ip，
+ 
+  例如：
+       setenv serverip 192.168.1.22
+       setenv ipaddr   192.168.1.100
+       setenv netmask  255.255.255.0
+       saveenv
+  还可以通过ping 192.168.1.22指令检查网络是否畅通，若ping命令卡死可使用Ctrl+C退出重新执行ping命令。
+
+########################################################################################
+                     SPI flash 烧写指导  jffs2文件系统
+########################################################################################
+
+0) RMII模式下需先指定网卡模式
+	setenv mdio_intf rmii
+	saveenv
+
+1) 地址空间说明(带括号的分区为初始化烧写分区):
+	  320K      2752K        2M           11M    
+	 (uboot)   (kernel)    (rootfs)     (app)
+
+	以下的操作均基于图示的地址空间分配，您也可以根据实际情况进行调整。
+2）烧写u-boot(已有u-boot可省略本步)
+	mw.b 82000000 ff 50000
+	tftp 0x82000000 u-boot-hi3516a.bin
+	#上面这一句，如果使用的是单片DDR，不论Hi3516A还是Hi3516D，都需改为tftp 0x82000000 u-boot-hi3516d.bin
+	sf probe 0
+	sf erase 0 0x50000
+	sf write 82000000 0 50000
+3）烧写内核
+	mw.b 82000000 ff 2b0000
+	tftp 82000000 uImage
+	sf probe 0
+	sf erase 50000 0x2b0000
+	sf write 82000000 50000 2b0000
+4) 烧写文件系统
+	mw.b 82000000 ff 200000
+	tftp 82000000 rootfs.jffs2
+	sf probe 0
+	sf erase 300000 0x200000
+	sf write 82000000 300000 0x200000
+5) 烧写应用程序
+	mw.b 82000000 ff b00000
+	tftp 82000000 param.jffs2
+	sf probe 0
+	sf erase 500000 0xb00000
+	sf write 82000000 500000 0xb00000
+6）设置启动参数
+	setenv bootargs 'mem=96M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=jffs2 mtdparts=hi_sfc:320K(boot),2752K(kernel),2M(rootfs),11M(data)'
+	setenv bootcmd 'sf probe 0;sf read 0x82000000 0x50000 0x2b0000;bootm 0x82000000'
+	setenv board hi3516a
+	#上面这一句，如果主芯片是Hi3516D，则需改为setenv board hi3516d
+	#如果使用的是单片DDR，需加上setenv ddr OnePiece
+       	saveenv
+
+7) 重启
+	reset
+

@@ -1,0 +1,603 @@
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+new install windows to do
+0 新建D盘目录结构
+
+1 安装软件，办公软件+开发软件
+
+
+2 增加开机启动项，两种方法都可行
+
+http://jingyan.baidu.com/article/90895e0ff3a41f64ec6b0bc3.html
+
+3 固定软件到任务栏
+
+
+4 映射网络驱动器，比如ubuntu samba共享目录，公共服务器
+
+
+5 设置主辅屏切换方向，在控制面板---更改显示设置---更改屏幕方向---拖动2到1头上即可
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+new install ubuntu to do
+1)
+设置root 密码
+sudo passwd
+
+
+wigewige@ubuntu:~$ sudo passwd 
+[sudo] password for wigewige: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+wigewige@ubuntu:~$ su -
+Password: 
+root@ubuntu:~# ls
+root@ubuntu:~# 
+
+
+1)
+网络
+
+Edit Connections
+DHCP 手动
+
+
+
+2)
+
+设置时间
+Time & Date settings
+
+shanghai
+
+
+
+1)
+更新源&更新系统
+
+163源，更新速度有1MB/s
+
+
+
+1)
+
+中文输入法
+
+默认安装的ibus-pinyin，shift选中会删数据，不好
+
+wigewige@ubuntu:~$ sudo apt-get install ibus-googlepinyin 
+im-config
+按照ibus-googlepinyin输入法，ibus是输入法框架，googlepinyin是输入法
+Text Entry Settings
++, Chinese(GooglePinyin)
+使用googlepinyin也不好，明明选中的词显示出来却是另一个词。
+
+换sunpinyin，设置了下翻页键就好了
+wigewige@wigewige-desktop:/var/cache/apt/archives$ sudo apt-get install sunpinyin-utils
+
+
+
+2)
+
+vi编辑器
+vi compatile backspace
+
+root@ubuntu:/etc# apt-get install vim
+
+
+
+1）
+sudo权限
+root@ubuntu:/etc# vi /etc/sudoers
+
+
+4)
+
+安装和配置ubuntu下ssh & samba ＆ nfs服务
+
+参见其他3篇博客
+
+
+5)
+
+创建share下目录结构
+
+develop（kandao）
+develop-tool
+
+diy
+wigewige-config
+
+
+5)
+ubuntu dash改为bash
+
+
+sudo dpkg-reconfigure dash
+no
+
+
+
+6)
+
+ubuntu 计算器
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/mpp_big-little/include$ sudo apt-get install gcalctool
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/mpp_big-little/include$ gnome-calculator
+
+
+7)
+ubuntu 14.04缺失的相关库和应用
+
+
+
+
+8）
+
+同步firefox标签页
+
+帐号mengxihe29@...
+
+ubuntu下只能使用火狐全球同步，火狐本地账户不能用
+
+手机上也可以用全球同步，windows ＆ ubuntu ＆ 手机三位一体成功，可以使用同一套收藏标签了
+
+
+9）
+
+ubuntu下翻墙，使用xx-net，下载xx-net.zip包，运行./start即可
+
+参照github上再配置火狐浏览器加入代理设置，加入可信证书，即可访问
+
+再配下私有申请的APPID就可以看视频了
+
+
+10)
+
+发现一个强大的万能播放/各自格式互转软件ffmpeg，并且是开源免费的，Linux/windows下都有都可以运行，windows下播放相对虚拟机实时些，转换快些。
+
+可以播放YUV/264/265格式，
+
+可以YUV/264/265各种格式间互转换，
+
+可以计算PSNR值。
+
+
+sudo apt-get install ffmpeg
+
+y4m转yuv
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ ffmpeg -i station2_1080p25.y4m -vcodec rawvideo station2_1080p25-ffmpeg.yuv
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ ffplay station2_1080p25-ffmpeg.yuv -video_size 1920x1080
+
+
+fplay -f rawvideo -video_size 1920x1080 pedestrian_area_1080p25.yuv 
+fplay stream_chn0.h265 
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ ffplay -f rawvideo -video_size 3840x2160 -vf "scale=1920:1080" Runners_3840x2160.yuv (对于3840x2160视频，ubuntu下才需要-vf "" 参数，windows 10下播放不需要设置缩放)
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ ffplay  -f rawvideo -video_size 176x144 bus222.yuv
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ ffplay bus222.yuv -f rawvideo -video_size 176x144
+
+不过用ffplay播放y4m会出现花屏和划屏的情况，显示ffplay没有考虑到y4m和兼容这种格式的yuv
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ ffplay  -f rawvideo -video_size 176x144 bus_qcif_15fps.y4m
+
+mplayer倒是可以正常播放出y4m格式YUV
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ mplayer bus_qcif_15fps.y4m
+
+linux下能播放视频的软件有ffplay,mplayer,vlc,vooya(YUV)
+
+转换工具有ffmpeg,mencoder
+
+感觉ffmpeg/fflay更强大些，支持更多的格式播放和相互间转换，而且天然支持265，基本这一个就够了。
+
+windows下看YUV比较专业的工具是YUV Player Deluxe
+
+
+10)
+
+某些网站下载下来的YUV是带帧头的.y4m格式
+
+需要通过软件把帧头剥离出来
+
+mencoder
+
+不过不知道为什么，这个软件在linux下用不了，在windows下倒是正常。
+转换的时候发现mencoder在ubuntu上无效，报frame too small,wrong format!
+
+后来，在windows上下载了一个mencoder.exe，在powershell下使用同样命令转换成功为yuv格式
+
+先要下载一个mencoder，然后 用命令行
+mencoder **.y4m -ovc raw -of rawvideo -vf format=i420 -o **.yuv
+就可以啦
+
+
+也可以用ffmpeg来转换y4m为yuv
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ ffmpeg -i bus_qcif_15fps.y4m -vcodec rawvideo bus33.yuv
+
+
+
+10)
+安装视频播放器vlc(支持h.264)
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ sudo apt-get install vlc
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ vlc
+
+增加vlc解h.265的插件vlc-plugin-libde265
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ sudo add-apt-repository ppa:strukturag/libde265
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ sudo apt-get update
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ sudo apt-get update
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/sample/venc$ sudo apt-get install vlc-plugin-libde265
+
+
+
+11)
+
+安装YUV播放软件vooya
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/tools$ sudo apt-get install libqt4-core libqt4-gui libopenexr6 libilmbase6
+Reading package lists... Done
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/tools$ sudo dpkg -i /home/wigewige/Downloads/vooya_u14-1.6-i386.deb
+(Reading database ... 174433 files and directories currently installed.)
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/yak/KD-Hisi3519v101-SRC/mpp_big-little/tools$ vooya vi_chn_0_3840_2160_p420_11.yuv
+
+
+
+12)
+
+浏览器观看视频装adobe flash插件
+
+登陆ubuntu software center，输入adobe，点击install即可。接下来就可以看优酷/直播吧等视频了。
+
+
+
+13)
+
+firefox自带的下载速度不佳，下载大文件吃力耗时久，安装下载软件uget
+
+wigewige@ubuntu:/etc/apt$ sudo apt-get install uget 
+wigewige@ubuntu:/etc/apt$ sudo apt-get install aria2 
+wigewige@ubuntu:/etc/apt$ uget-gtk 
+
+参考了http://blog.csdn.NET/sunnylgz/article/details/14226453 这篇文章，配置插件和设置参数，不过不需要增加源，可直接安装，估计是现在的源里已经把二者都添加进去了。
+设置aria2插件前下载只有20KiB/s不到，设置插件后下载同样一个文件，速度提升到100~300KiB/s，提升明显。
+NAME
+       aria2c - The ultra fast download utility
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+ubuntu 14.04 安装设置samba共享服务
+
+步骤
+
+第一步
+sudo apt-get install samba
+
+(使用ps-e | grep smbd查看是否成功开启smbd服务)
+
+or
+
+sudo apt-get install samba samba-common
+
+第二步
+sudo vi /etc/samba/smb.conf
+
+在最底下添加以下几行
+
+[share]
+
+comment = Shared Folder with username andpassword
+
+path = /home/wigewige/share
+
+valid users = wigewige
+
+writable = yes
+
+browseable = yes
+
+create mode = 0775
+
+force create mode = 0775
+
+directory mode = 0775
+
+force directory mode = 0775
+
+force user = wigewige
+
+force group = wigewige
+
+available = yes
+
+
+第三步
+
+sudo smbpasswd -a wigewige
+
+
+第四步
+
+sudo service smbd restart
+
+
+第五步
+
+windows下，运行，输入\\172.16.0.91 看是否成功
+
+遇到问题：弹出“您可能没有权限使用网络资源”错误，重启windows后就成功正常了，可以访问了。（在win7上到这里就可以了）
+
+或者setenforce 0和iptables -F关闭防火墙看看（在win10上遇到总是不成功，最后不知怎么又可以访问了，换了个别的用户名试了下，不通后再用原来的wigewige用户名居然进去了，莫名其妙，之前做了update和upgrade ubuntu系统的操作，不知是不是跟着有关系，没有显示安装samba-common，只装了samba）
+
+
+这篇百度经验不错
+http://jingyan.baidu.com/article/00a07f38b9194082d028dc08.html
+
+
+
+
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+ubuntu 14.04 安装设置ssh远程连接服务
+
+
+sudo apt-get install openssh-server
+
+
+
+输入"sudo ps -e |grep ssh"-->回车-->有sshd,说明ssh服务已经启动，如果没有启动，输入"sudo service ssh start"-->回车-->ssh服务就会启动
+
+
+
+输入"sudo gedit /etc/ssh/sshd_config"-->回车-->把配置文件中的"PermitRootLogin without-password"加一个"#"号,把它注释掉-->再增加一句"PermitRootLogin yes"-->保存，修改成功。
+
+
+
+ifconfig
+
+
+
+http://jingyan.baidu.com/article/9c69d48fb9fd7b13c8024e6b.html
+
+
+
+
+
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+完整编译Hi3519V101_SDK_V1.0.1.0遇到的问题及处理方法
+
+问题
+解开发布包，直接编译sample，报错
+/home/wigewige/share/develop/kandao/hisi/yak-0928/KD-Hisi3519v101-SRC/mpp_big-little/sample/hifb/../common/sample_comm.h:45:21: fatal error: hi_mipi.h: No such file or directory
+ #include "hi_mipi.h"
+                     ^
+compilation terminated.
+
+解决
+
+先编译OSDRV
+
+
+
+问题
+make all
+~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/opensource/kernel/linux-3.18.y ~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv
+"mkimage" command not found - U-Boot images will not be built
+
+解决
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv$ sudo apt-get install u-boot-tools
+
+
+问题
+
+遇到编译mkyaffs2 x64 impatition i386
+
+gcc -o mkyaffs2image100 mkyaffs2image.o yaffs_ecc.o yaffs_packedtags2.o yaffs_tagsvalidity.o oob_config_v100.o -static
+/usr/bin/ld: i386:x86-64 architecture of input file `mkyaffs2image.o' is incompatible with i386 output
+/usr/bin/ld: i386:x86-64 architecture of input file `yaffs_ecc.o' is incompatible with i386 output
+/usr/bin/ld: i386:x86-64 architecture of input file `yaffs_packedtags2.o' is incompatible with i386 output
+/usr/bin/ld: i386:x86-64 architecture of input file `yaffs_tagsvalidity.o' is incompatible with i386 output
+collect2: error: ld returned 1 exit status
+make[2]: *** [mkyaffs2image100] Error 1
+make[2]: Leaving directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/mkyaffs2image/mkyaffs2image'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/mkyaffs2image'
+make: *** [hipctools] Error 2
+
+
+解决
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/mkyaffs2image/mkyaffs2image$ make clean
+
+
+问题
+
+  CC      compr_zlib.o
+compr_zlib.c:39:18: fatal error: zlib.h: No such file or directory
+ #include <zlib.h>
+                  ^
+compilation terminated.
+make[2]: *** [/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/jffs2_tool/tmp/mtd-utils-1.5.0/compr_zlib.o] Error 1
+make[2]: Leaving directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/jffs2_tool/tmp/mtd-utils-1.5.0'
+make[1]: *** [/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/jffs2_tool/tmp/sbin/mkfs.jffs2] Error 2
+make[1]: Leaving directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/jffs2_tool'
+make: *** [hipctools] Error 2
+
+解决
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/jffs2_tool/tmp/mtd-utils-1.5.0$ sudo apt-get install zlib1g-dev
+
+
+问题
+
+  CC      compr_zlib.o
+  CC      compr_lzo.o
+compr_lzo.c:31:23: fatal error: lzo/lzo1x.h: No such file or directory
+ #include <lzo/lzo1x.h>
+                       ^
+compilation terminated.
+make: *** [/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/jffs2_tool/tmp/mtd-utils-1.5.0/compr_lzo.o] Error 1
+
+解决
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/jffs2_tool/tmp/mtd-utils-1.5.0$ sudo apt-get install liblzo2-dev
+
+
+问题
+
+configure: error: ncurses or ncursesw selected, but library not found (--without-ncurses to disable)
+make[1]: *** [/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/cramfs_tool/tmp/sbin/mkfs.cramfs] Error 1
+make[1]: Leaving directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/cramfs_tool'
+make: *** [hipctools] Error 2
+
+解决
+
+sudo apt-get install libncurses5-dev libncursesw5-dev
+
+
+
+问题
+
+checking for C++ compiler default output file name... 
+configure: error: C++ compiler cannot create executables
+See `config.log' for more details.
+make[2]: Entering directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/lzma_tool/lzma-4.32.7'
+make[2]: *** No targets specified and no makefile found.  Stop.
+make[2]: Leaving directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/lzma_tool/lzma-4.32.7'
+~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/lzma_tool
+cp: cannot stat ‘/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/lzma_tool/lzma-4.32.7/src/lzma/lzma’: No such file or directory
+make[1]: *** [all] Error 1
+make[1]: Leaving directory `/home/wigewige/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/lzma_tool'
+make: *** [hipctools] Error 2
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv$ 
+
+
+解决
+
+wigewige@ubuntu:~/share/develop/kandao/hisi/Hi3519V101_SDK_V1.0.1.0/osdrv/tools/pc/lzma_tool/lzma-4.32.7$ sudo apt-get install g++
+
+
+
+
+
+
+
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+ubuntu 14.04 安装设置nfs服务，好让单板挂载使用
+
+遇到Permission denied，mount: mounting 192.168.0.224:/home/wigewige/share/develop/kandao/hisi/Git-new-1.0.2/KD-Hisi3519v101-SRC/mpp_big-little/sample on /mnt/sdcard/nfs failed: Permission denied
+修改/etc/exports后，无论怎么重启rpcbind服务和nfs-kernel-server服务，mount都Permission denied，这是重启一下
+虚拟机就mount上了。
+
+注意：使用前虚拟机先配好桥接模式，单板配好IP，否则异常出错
+
+步骤
+zhangwei@ubuntu:~$sudo apt-get install nfs-kernel-server nfs-common
+
+获取zhangwei用户的uid和gid
+zhangwei@ubuntu:~/nfs/HiSTBLinuxV100R003C00SPC060/pub$id zhangwei
+uid=1000(zhangwei)gid=1000(zhangwei)组=1000(zhangwei),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),124(sambashare)
+zhangwei@ubuntu:~/nfs/HiSTBLinuxV100R003C00SPC060/pub$sudo vi /etc/exports
+/home/zhangwei *(rw,sync,anonuid=1000,anongid=1000,no_subtree_check)
+
+zhangwei@ubuntu:~$sudo /etc/init.d/rpcbind restart
+zhangwei@ubuntu:~$sudo /etc/init.d/nfs-kernel-server restart
+
+结果
+执行完前
+#mount -t nfs -o nolock 192.168.3.63:/home/zhangwei /mnt/nfs/
+mount:RPC: Unable to receive; errno = Connection refused
+#
+#
+# df
+Filesystem 1K-blocks Used Available Use% Mounted on
+/dev/root 92656 44796 45896 49% /
+dev 514540 4 514536 0% /dev
+tmp 514540 0 514540 0% /tmp
+#
+#
+
+执行完后
+#mount -t nfs -o nolock 192.168.3.63:/home/zhangwei /mnt/nfs/
+#
+# df
+Filesystem 1K-blocks Used Available Use% Mounted on
+/dev/root 92656 44796 45896 49% /
+dev 514540 4 514536 0% /dev
+tmp 514540 0 514540 0% /tmp
+192.168.3.63:/home/zhangwei
+40120704 15209344 22850304 40% /mnt/nfs
+# cd/mnt/nfs/
+# ls
+Desktop Public
+Documents ServerInstall
+Downloads Templates
+HiSTBLinuxV100R003C00SPC060 Videos
+HiSTBLinuxV100R003C00SPC060.tar.gz examples.desktop
+Music ?— ? ?é￠??–???￡
+Pictures
+#
+
+环境：ubuntu14.04 LTS
+
+
+
+最终实现
+
+0 ubuntu 14.04打开NFS，好让单板挂载使用
+
+1 怎么使在nfs下新建文件的拥有者是普通用户，而非root用户
+
+获取用户id，配置/etc/exports文件
+2 ubuntu14桥接方式上网，设置IP和DNS；默认不用配也能上网，但会跟主机不在同一个网段（如159），导致不能用NFS服务
+3 ubuntu14上mountnfs服务器不成功，提示mount:wrong fs type, bad option, bad superblock
+在终端下输入安装nfs-common即可解决，安装命令为sudoapt-get install nfs-common
+
+4 mount挂载服务器17报错，提示Input/outputerror，ping报错提示Networkis unreachable
+（居然是ip地址没配导致。配了ip地址后即挂载上）
+5 ubuntu 14桥接方式上网，设置IP和DNS；默认不用配也能上网，但会跟主机不在同一个网段（如159），导致不能用NFS服务
+先虚拟机改默认的NAT为桥接，再使用默认DHCP或设置静态IP方式
+
+Makefile之我学
+
+
+
+Makefile之我学
+

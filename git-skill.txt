@@ -1,0 +1,170 @@
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+
+git rm --cached digui.c 
+
+
+wigewige@ubuntu:~/share/develop/wigewige/science$ git status 
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   digui.c
+	new file:   main.c
+	new file:   socket.c
+	new file:   test-float.c
+
+wigewige@ubuntu:~/share/develop/wigewige/science$ git reset HEAD digui.c
+fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+wigewige@ubuntu:~/share/develop/wigewige/science$ git rm --cached digui.c 
+rm 'digui.c'
+wigewige@ubuntu:~/share/develop/wigewige/science$ ls
+digui.c  main.c  socket.c  test-float.c
+wigewige@ubuntu:~/share/develop/wigewige/science$ git status 
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   main.c
+	new file:   socket.c
+	new file:   test-float.c
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	digui.c
+
+wigewige@ubuntu:~/share/develop/wigewige/science$ 
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+wigewige@ubuntu:~/share/develop/skill$ git log --pretty=oneline 
+f9107b846ab2342717d46c030b12fd86f5bc4068 07/21 10:22 commit
+5e904d100ab8c94083d753d6f623b475051ae8c0 0714 0940 fresh
+d2e532d6122d5644c3a761c15373704f9ca776fe add jingyan,programming-skill
+020ad0e1d87ba171027f2cb8f39164ff92620a80 4g 2017/7/10 1413
+23a102f904c4d77797ff3fc7257d0ba4a4732597 fresh 2017/7/6
+f51f7abc4b481a1d5ceee92841024e3697dd34a6 delete file
+f8f62091c4ab1fcb58d6bfd4435377e7970c4547 skill initial
+
+wigewige@ubuntu:~/share/develop/skill$ git log 
+commit f9107b846ab2342717d46c030b12fd86f5bc4068
+Author: wigewige <mengxihe29@126.com>
+Date:   Fri Jul 21 10:22:26 2017 +0800
+
+    07/21 10:22 commit
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+git checkout -- 4g.txt
+
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   4g.txt
+
+取销工作区所作修改，还原为最新版本内容
+
+
+git reset HEAD 4g.txt
+
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+撤销add，取消add到暂存区stage中的文件，原样回到工作区，不准备不打算提交
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+sudo apt-get install git
+git init 
+
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+
+ssh-keygen -t rsa -C "mengxihe29@126.com"
+cat ~/.ssh/id_rsa.pub
+niantie
+
+ssh -T git@github.com
+git clone https://github.com/wigewige/testgit.git
+
+git add 12345.c
+git status
+git commit -m "hello 1843"
+git log
+
+git checkout -b new_branch  git branch new_branch
+git branch
+git checkout master
+git branch -d ad
+git push origin master
+
+
+git pull
+
+
+
+vi 12345.c
+git add 12345.c 
+git commit -m "2 include"
+
+git push origin master
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+
+git init
+
+
+git add first
+git commit  -m "1853"
+
+git remote add origin https://github.com/wigewige/hes.git
+git push -u origin master
+
+
+git pull
+
+
+git config format.pretty oneline
+
+
+
+vi 12345.c
+git add 12345.c 
+git commit -m "2 include"
+
+git push origin master
+
+
+
+Reference
+www.runoob.com/w3cnote/git-five-minutes-tutorial.html
+www.runoob.com/w3cnote/git-guide.html
+http://rogerdudler.github.io/git-guide/index.zh.html
+http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375233990231ac8cf32ef1b24887a5209f83e01cb94b000
+http://backlogtool.com/git-guide/cn/intro/intro1_2.html
+
+
+

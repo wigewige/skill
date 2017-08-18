@@ -1,0 +1,33 @@
+
+
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！蛍護�漾�！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+
+2017/07/24 21:31
+
+
+
+-------------------------------------------------------------------
+45 07/23 22:18
+
+clipit 07/23 22:10
+
+
+~ # ls /usr/share/
+udhcpc
+
+
+										  ^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/mnt/flash/Server/tools/quectel-CM: line 1: syntax error: unexpected word (expecting ")")
+cur log num 4
+
+
+
+wigewige@ubuntu:/etc/samba$ sudo smbpasswd -a wigewige
+New SMB password:
+
+dmesg
+modinfo GobiNet.ko
+
+
