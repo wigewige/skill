@@ -1,5 +1,441 @@
 
 
+
+modinfo
+insmod
+rmmod
+modprobe
+depmod
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+linuxÇý¶¯
+
+Ö»±àÄ³Ò»¸ö£¬Ö»±àÄ³Ò»Àà±ð£¬±àÈ«²¿Ä£¿é
+
+obj-m += hello.o
+
+obj-m += hello/
+
+
+make -C ./ M=drivers/char/hello modules
+
+make -C ./ M=drivers/char/hello clean
+
+Makefile
+
+hello.c
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/kernel.h>
+
+
+
+static int hello_init(void)
+{
+    printk(KERN_ALERT "0907 i bear a hello world.\n");
+    return 0;
+}
+
+
+
+
+static void hello_exit(void)
+{
+    printk(KERN_ALERT "0907 out out.\n");
+    return;
+}
+
+
+module_init(hello_init);
+module_exit(hello_exit);
+MODULE_LICENSE("GPL");
+
+
+×îÊµÓÃµÄ£¬¾ÍÕâÃ´¶à
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ make -C ./ M=/home/wigewige/share/develop/wigewige/science modules
+make: Entering directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+  CC [M]  /home/wigewige/share/develop/wigewige/science/hello.o
+/home/wigewige/share/develop/wigewige/science/hello.c: In function ¡®hello_exit¡¯:
+/home/wigewige/share/develop/wigewige/science/hello.c:19:2: warning: ¡®return¡¯ with a value, in function returning void [enabled by default]
+  return 0;
+  ^
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wigewige/share/develop/wigewige/science/hello.mod.o
+  LD [M]  /home/wigewige/share/develop/wigewige/science/hello.ko
+make: Leaving directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+
+
+
+
+	"usbserial",
+	"usb_wwan",
+	"option",
+	"qcserial",
+	"qmi_wwan"
+};
+
+rmmod  qmi_wwan 
+rmmod  qcserial
+rmmod -f option
+rmmod -f  usb_wwan
+rmmod -f  usbserial
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+×ÜËãÕÒµ½qcserial.koµÄ¿ª¹ØCONFIG_USB_SERIAL_QUALCOMMÔÚÄÄ´ò¿ªÁË
+ --- USB Serial Converter support
+<M>   USB Qualcomm Serial modem 
+
+obj-$(CONFIG_USB_SERIAL_QUALCOMM)       += qcserial.o
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+¼´Ê¹ÅäÖÃÎªÀày£¬µ«Ö¸¶¨±àµÄ»°£¬»¹ÊÇ¿ÉÒÔ±à³öÄ£¿éµÄ£¬ËùÒÔnot setµÄqcserial.koÒ²¿ÉÒÔÖ¸¶¨±à³öÀ´
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ make -C ./ M=drivers/usb/serial/ obj-m=option.o modules
+make: Entering directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      drivers/usb/serial/option.mod.o
+  LD [M]  drivers/usb/serial/option.ko
+make: Leaving directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ ls drivers/usb/serial/*.ko
+drivers/usb/serial/option.ko
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+¸ÄÎªy£¬±à½øÄÚºËºó£¬¹ûÈ»Ã»±à³öÄ£¿éÁË
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ diff .config .config.old 
+1500,1501c1500
+< CONFIG_USB_SERIAL=y
+< # CONFIG_USB_SERIAL_CONSOLE is not set
+---
+> CONFIG_USB_SERIAL=m
+1547,1548c1546,1547
+< CONFIG_USB_SERIAL_WWAN=y
+< CONFIG_USB_SERIAL_OPTION=y
+---
+> CONFIG_USB_SERIAL_WWAN=m
+> CONFIG_USB_SERIAL_OPTION=m
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ vi drivers/usb/serial/Makefile
+
+
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ make modules
+scripts/kconfig/conf --silentoldconfig Kconfig
+  CHK     include/linux/version.h
+  CHK     include/generated/utsrelease.h
+make[1]: `include/generated/mach-types.h' is up to date.
+  CALL    scripts/checksyscalls.sh
+  Building modules, stage 2.
+  MODPOST 54 modules
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+qcserial.ioÃ»ÓÐ±à³ö£¬È·ÊµÊÇÒòÎª.configÖÐÑ¡ÏîÃ»´ò¿ª
+drivers/usb/serial/qcserial.ko
+
+obj-$(CONFIG_USB_SERIAL_QUALCOMM)       += qcserial.o
+
+# CONFIG_USB_SERIAL_QUALCOMM is not set
+
+
+
+  CC      drivers/usb/serial/option.mod.o
+  LD [M]  drivers/usb/serial/option.ko
+  CC      drivers/usb/serial/usb_wwan.mod.o
+  LD [M]  drivers/usb/serial/usb_wwan.ko
+  LD [M]  drivers/usb/serial/usbserial.ko
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ ls drivers/usb/serial/*.ko
+drivers/usb/serial/option.ko  drivers/usb/serial/usbserial.ko  drivers/usb/serial/usb_wwan.ko
+
+
+
+
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+¸Ä³É-y±à½øÄÚºËºó£¬È·ÊµÃ»ÔÙ±à³öqmi_wwan.koÄ£¿é
+¶øÎÒÊÇÒª±à³öqmi_wwan.ko£¬ËùÒÔÓ¦¸ÃÉèÖÃÎªm£¬make menuconfigÊÇÑ¡QMI WWAN driverÎªM  module
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ diff .config .config.old 
+984c984
+< CONFIG_USB_NET_QMI_WWAN=y
+---
+> CONFIG_USB_NET_QMI_WWAN=m
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ make modules
+scripts/kconfig/conf --silentoldconfig Kconfig
+  CHK     include/linux/version.h
+  CHK     include/generated/utsrelease.h
+make[1]: `include/generated/mach-types.h' is up to date.
+  CALL    scripts/checksyscalls.sh
+  Building modules, stage 2.
+  MODPOST 56 modules
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_open' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_close' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_dtr_rts' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_suspend' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_write_room' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_startup' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_tiocmset' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_chars_in_buffer' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_ioctl' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_disconnect' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_resume' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_tiocmget' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_write' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_release' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_set_termios' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_resume' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_probe' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_register_drivers' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_deregister_drivers' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_suspend' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_port_softint' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_disconnect' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_write_bulk_callback' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_handle_sysrq_char' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_handle_dcd_change' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_disconnect' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_read_bulk_callback' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_unthrottle' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_open' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_handle_break' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_submit_read_urbs' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_resume' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_write' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_throttle' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_process_read_urb' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_close' exported twice. Previous export was in vmlinux
+  LD [M]  drivers/net/usb/asix.ko
+  LD [M]  drivers/net/usb/cdc_ether.ko
+  LD [M]  drivers/net/usb/cdc_ncm.ko
+  LD [M]  drivers/net/usb/cdc_subset.ko
+  LD [M]  drivers/net/usb/net1080.ko
+  LD [M]  drivers/net/usb/zaurus.ko
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+
+
+
+  LD [M]  drivers/net/usb/asix.ko
+  LD [M]  drivers/net/usb/cdc_ether.ko
+  LD [M]  drivers/net/usb/cdc_ncm.ko
+  LD [M]  drivers/net/usb/cdc_subset.ko
+  LD [M]  drivers/net/usb/net1080.ko
+  LD [M]  drivers/net/usb/qmi_wwan.ko
+  LD [M]  drivers/net/usb/zaurus.ko
+
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ diff .config .config.old 
+984c984
+< CONFIG_USB_NET_QMI_WWAN=m
+---
+> CONFIG_USB_NET_QMI_WWAN=y
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ make modules
+scripts/kconfig/conf --silentoldconfig Kconfig
+  CHK     include/linux/version.h
+  CHK     include/generated/utsrelease.h
+make[1]: `include/generated/mach-types.h' is up to date.
+  CALL    scripts/checksyscalls.sh
+  Building modules, stage 2.
+  MODPOST 57 modules
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_open' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_close' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_dtr_rts' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_suspend' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_write_room' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_startup' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_tiocmset' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_chars_in_buffer' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_ioctl' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_disconnect' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_resume' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_tiocmget' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_write' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_release' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usb_wwan: 'usb_wwan_set_termios' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_resume' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_probe' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_register_drivers' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_deregister_drivers' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_suspend' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_port_softint' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_disconnect' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_write_bulk_callback' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_handle_sysrq_char' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_handle_dcd_change' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_disconnect' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_read_bulk_callback' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_unthrottle' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_open' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_handle_break' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_submit_read_urbs' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_resume' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_write' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_throttle' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_process_read_urb' exported twice. Previous export was in vmlinux
+WARNING: drivers/usb/serial/usbserial: 'usb_serial_generic_close' exported twice. Previous export was in vmlinux
+  LD [M]  drivers/net/usb/qmi_wwan.ko
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+KERNELDIR := /lib/modules/$(shell uname -r)/build
+PWD       := $(shell pwd)
+
+obj-m+=./drivers/usb/class/cdc-acm.o
+obj-m+=./drivers/usb/serial/usb_wwan.o
+obj-m+=./drivers/usb/serial/option.o
+obj-m+=./drivers/usb/serial/qcserial.o
+obj-m+=./drivers/net/usb/qmi_wwan.o
+
+modules: clean
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+
+install: modules
+	cp $(PWD)/drivers/usb/serial/option.ko /lib/modules/$(shell uname -r)/kernel/drivers/usb/serial/
+	cp $(PWD)/drivers/usb/serial/usb_wwan.ko /lib/modules/$(shell uname -r)/kernel/drivers/usb/serial/
+	cp $(PWD)/drivers/usb/serial/qcserial.ko /lib/modules/$(shell uname -r)/kernel/drivers/usb/serial/
+	cp $(PWD)/drivers/usb/class/cdc-acm.ko /lib/modules/$(shell uname -r)/kernel/drivers/usb/class/
+	cp $(PWD)/drivers/net/usb/qmi_wwan.ko /lib/modules/$(shell uname -r)/kernel/drivers/net/usb/
+	modprobe -r option qcserial cdc-acm qmi_wwan
+	depmod
+
+clean:
+	rm -rf *~ .tmp_versions modules.order Module.symvers
+	find . -type f -name *~ -o -name *.o -o -name *.ko -o -name *.cmd -o -name *.mod.c |  xargs rm -rf
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+Ã÷°×ÁË,M=ºóµÄµØÖ·ÊÇ¸ù¾Ý-CºóµÄ²ÎÊý¶¨£¬»òÕßÓÃ¾ø¶ÔÂ·¾¶
+ÆäÊµ£¬ÔÚÈÎºÎÒ»¸öÄ¿Â¼¶¼¿ÉÒÔ±à
+´ó¶àÊý£¬¾ÍÔÚÔ´ÂëÊ÷¸ùÄ¿Â¼ÏÂ±à
+
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ make -C ./ M=drivers/usb/serial/ obj-m=qcserial.o modules
+make: Entering directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      drivers/usb/serial/qcserial.mod.o
+  LD [M]  drivers/usb/serial/qcserial.ko
+make: Leaving directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net$ make -C /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y M=/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb/ obj-m=qmi_wwan.o modules
+make: Entering directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+  CC [M]  /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb/qmi_wwan.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb/qmi_wwan.mod.o
+  LD [M]  /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb/qmi_wwan.ko
+make: Leaving directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net$ 
+
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net$ make -C ../../../linux-3.4.y/ M=drivers/net/usb obj-m=qmi_wwan.o modules
+make: Entering directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make: Leaving directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net$ 
+
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ make -C ./ M=drivers/net/usb/ obj-m=qmi_wwan.o modules
+make: Entering directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+  CC [M]  drivers/net/usb/qmi_wwan.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      drivers/net/usb/qmi_wwan.mod.o
+  LD [M]  drivers/net/usb/qmi_wwan.ko
+make: Leaving directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y$ 
+
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb$ make -C ../../../../linux-3.4.y/ M=`pwd` obj-m=qmi_wwan.o modules
+make: Entering directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+  CC [M]  /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb/qmi_wwan.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb/qmi_wwan.mod.o
+  LD [M]  /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb/qmi_wwan.ko
+make: Leaving directory `/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y'
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/net/usb$ 
+
+
+
+
+sudo make -C /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y M=/home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/usb/serial/ obj-m=option.o modules
+
+
+make modules
+
+
+make -C /lib/modules/`uname -r`/build M=`pwd`/drivers/usb/serial obj-m=option.o modules
+
+
+sudo make -C ./ M=./drivers/usb/serial obj-m=option.o modules
+sudo make -C /lib/modules/`uname -r`/build M=`pwd`/drivers/usb/serial obj-m=usb_wwan.o
+modules
+sudo make -C /lib/modules/`uname -r`/build M=`pwd`/drivers/usb/serial obj-m=qcserial.o modules
+
+
+
+
+
+
 ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 
 

@@ -1,6 +1,103 @@
 
 
 
+
+
+
+~ # cat /proc/cmdline 
+mem=32M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=jffs2 mtdparts=hi_sfc:256K(boot),1792K(kernel),1536K(rootfs),512K(config),4096K(data)
+~ # dhcp enable = 0
+HankBatchUpdateServer tcp serverIp:10.0.39.231	port:20203
+======== Detect echo thread start ========
+
+~ # 
+~ # df -h
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                 1.5M      1.5M         0 100% /
+tmpfs                    30.0M    344.0K     29.7M   1% /dev
+tmpfs                    30.0M    344.0K     29.7M   1% /tmp
+tmpfs                    30.0M    344.0K     29.7M   1% /dev
+tmpfs                    30.0M    344.0K     29.7M   1% /var
+/dev/mtdblock3          512.0K    268.0K    244.0K  52% /mnt/flash
+/dev/mtdblock4            4.0M      4.0M         0 100% /mnt/flash/Server
+/dev/mtdblock4            4.0M      4.0M         0 100% /usr/lib
+tmpfs                    30.0M    344.0K     29.7M   1% /etc
+tmpfs                    30.0M    344.0K     29.7M   1% /usr/local/lib
+tmpfs                    30.0M    344.0K     29.7M   1% /mnt/flash/Server/databak
+/dev/mtdblock4            4.0M      4.0M         0 100% /root
+tmpfs                    30.0M    344.0K     29.7M   1% /mnt/flash/Server/web/jpgimage
+tmpfs                    30.0M    344.0K     29.7M   1% /mnt/flash/Server/web/jpgmulreq
+tmpfs                    30.0M    344.0K     29.7M   1% /mnt/flash/Server/web/mjpg
+tmpfs                    30.0M    344.0K     29.7M   1% /mnt/flash/Server/web/mjpgstreamreq
+~ # For hi3518ev200: now app start OK, clean caches again
+Time is invalid !
+
+
+~ # 
+~ # 
+~ # ls
+watchall
+~ # cat /proc/cmdline 
+mem=32M console=ttyAMA0,115200 root=/dev/mtdblock2 rootfstype=jffs2 mtdparts=hi_sfc:256K(boot),1792K(kernel),1536K(rootfs),1536K(config),11264K(data)
+~ # 
+~ # 
+~ # soap_serve_request----- soap->tag==d:Hello
+soap_serve_request----- soap->tag==d:Hello
+
+~ # 
+~ # df -h
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                 1.5M      1.5M         0 100% /
+tmpfs                    30.0M    352.0K     29.7M   1% /dev
+tmpfs                    30.0M    352.0K     29.7M   1% /tmp
+tmpfs                    30.0M    352.0K     29.7M   1% /dev
+tmpfs                    30.0M    352.0K     29.7M   1% /var
+/dev/mtdblock3            1.5M    228.0K      1.3M  15% /mnt/flash
+/dev/mtdblock4            8.4M      8.4M         0 100% /mnt/flash/Server
+/dev/mtdblock4            8.4M      8.4M         0 100% /usr/lib
+tmpfs                    30.0M    352.0K     29.7M   1% /etc
+tmpfs                    30.0M    352.0K     29.7M   1% /usr/local/lib
+tmpfs                    30.0M    352.0K     29.7M   1% /mnt/flash/Server/databak
+/dev/mtdblock4            8.4M      8.4M         0 100% /root
+tmpfs                    30.0M    352.0K     29.7M   1% /mnt/flash/Server/web/jpgimage
+tmpfs                    30.0M    352.0K     29.7M   1% /mnt/flash/Server/web/jpgmulreq
+tmpfs                    30.0M    352.0K     29.7M   1% /mnt/flash/Server/web/mjpg
+tmpfs                    30.0M    352.0K     29.7M   1% /mnt/flash/Server/web/mjpgstreamreq
+~ # 
+~ # 
+
+
+
+                                                       
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+Ô­Òò °å×ÓÖ÷Ð¾Æ¬»òddrÃ»ÌùºÃ£¬Ðéº¸¡£Éú²úµÄ°å×Ó¶¼ÊÇÉÕ¹ýbootºÍÓ¦ÓÃÈí¼þµÄ£¬¿ÉÒÔÖ±½Óä¯ÀÀÍ¼Ïñ¡£
+
+
+System startup
+
+
+System startup
+
+
+System startup
+
+
+System startup
+
+                                                       
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+./auto.sh±¨´í£¬ÕÒ²»µ½rootfs_uclibc
+Ô­ÒòÊÇµ±ÐÞ¸ÄÈçhank_sys.hÎÄ¼þºó£¬Ã»ÓÐ¶Ôauto.sh½Å±¾ÖÐcat×öauthbash´¦Àí
+´¦Àíºó¾Í±àÒëÍ¨¹ýÁË
+=== Update file is ready ! ===
+Compile HK rootfs done.
+ALL DONE.
+Compile for HK DONE.
+
+
+
 ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 
 Superfetch  Ë«»÷Superfetch·þÎñ£¬°Ñ·þÎñµÄÆô¶¯ÀàÐÍÓÉ¡°×Ô¶¯¡±¸ÄÎª¡°ÊÖ¶¯¡±£¬È»ºó±£´æÍË³ö£»

@@ -1,0 +1,96 @@
+
+
+
+
+------------------------------------------------------------ DIVIDING LINE ----------------------------------------------------------------------
+
+fluctuation 60us ~ 5ms
+
+ts.tv_sec = 0;
+ts.tv_nsec = 10; // 5000; // 500000000;    // 1500ms
+//ts.tv_nsec = 500000000;    // 1500ms
+//ts.tv_nsec = 2000*1000; // 5000; // 500000000;    // 1500ms
+gettimeofday(&tv1, NULL);
+printf("tv1.tv_sec=%ld, tv1.tv_usec=%ld\n", tv1.tv_sec, tv1.tv_usec);
+if ( nanosleep(&ts, &ts1) == -1 )
+{
+    printf("error!\n");
+    exit(1);
+}
+gettimeofday(&tv2, NULL);
+printf("tv2.tv_sec=%ld, tv2.tv_usec=%ld\n", tv2.tv_sec, tv2.tv_usec);
+printf("tv2.tv_usec-tv1.tv_usec=%ld\n", tv2.tv_usec-tv1.tv_usec);
+
+
+
+tv2.tv_usec-tv1.tv_usec=70
+tv1.tv_sec=1503999805, tv1.tv_usec=586154
+tv2.tv_sec=1503999805, tv2.tv_usec=586241
+tv2.tv_usec-tv1.tv_usec=87
+tv1.tv_sec=1503999805, tv1.tv_usec=586604
+tv2.tv_sec=1503999805, tv2.tv_usec=586734
+tv2.tv_usec-tv1.tv_usec=130
+tv1.tv_sec=1503999805, tv1.tv_usec=586739
+tv2.tv_sec=1503999805, tv2.tv_usec=586813
+tv2.tv_usec-tv1.tv_usec=74
+tv1.tv_sec=1503999805, tv1.tv_usec=586820
+tv2.tv_sec=1503999805, tv2.tv_usec=587148
+tv2.tv_usec-tv1.tv_usec=328
+tv1.tv_sec=1503999805, tv1.tv_usec=587152
+tv2.tv_sec=1503999805, tv2.tv_usec=587256
+tv2.tv_usec-tv1.tv_usec=104
+tv1.tv_sec=1503999805, tv1.tv_usec=587261
+tv2.tv_sec=1503999805, tv2.tv_usec=587422
+tv2.tv_usec-tv1.tv_usec=161
+tv1.tv_sec=1503999805, tv1.tv_usec=587426
+tv2.tv_sec=1503999805, tv2.tv_usec=587497
+tv2.tv_usec-tv1.tv_usec=71
+tv1.tv_sec=1503999805, tv1.tv_usec=587501
+
+
+
+------------------------------------------------------------ DIVIDING LINE ----------------------------------------------------------------------
+
+usleep
+gettimeofday(&tv1, NULL);
+printf("tv1.tv_sec=%ld, tv1.tv_usec=%ld\n", tv1.tv_sec, tv1.tv_usec);
+usleep(1);
+gettimeofday(&tv2, NULL);
+printf("tv2.tv_sec=%ld, tv2.tv_usec=%ld\n", tv2.tv_sec, tv2.tv_usec);
+printf("tv2.tv_usec-tv1.tv_usec=%ld\n", tv2.tv_usec-tv1.tv_usec);
+
+tv2.tv_usec-tv1.tv_usec=184
+tv1.tv_sec=1503999006, tv1.tv_usec=313902
+tv2.tv_sec=1503999006, tv2.tv_usec=314237
+tv2.tv_usec-tv1.tv_usec=335
+tv1.tv_sec=1503999006, tv1.tv_usec=314251
+tv2.tv_sec=1503999006, tv2.tv_usec=314763
+tv2.tv_usec-tv1.tv_usec=512
+tv1.tv_sec=1503999006, tv1.tv_usec=314768
+tv2.tv_sec=1503999006, tv2.tv_usec=315258
+tv2.tv_usec-tv1.tv_usec=490
+tv1.tv_sec=1503999006, tv1.tv_usec=315263
+tv2.tv_sec=1503999006, tv2.tv_usec=315775
+tv2.tv_usec-tv1.tv_usec=512
+tv1.tv_sec=1503999006, tv1.tv_usec=315780
+tv2.tv_sec=1503999006, tv2.tv_usec=316349
+tv2.tv_usec-tv1.tv_usec=569
+tv1.tv_sec=1503999006, tv1.tv_usec=316357
+tv2.tv_sec=1503999006, tv2.tv_usec=316818
+tv2.tv_usec-tv1.tv_usec=461
+tv1.tv_sec=1503999006, tv1.tv_usec=316825
+tv2.tv_sec=1503999006, tv2.tv_usec=317986
+tv2.tv_usec-tv1.tv_usec=1161
+tv1.tv_sec=1503999006, tv1.tv_usec=317993
+tv2.tv_sec=1503999006, tv2.tv_usec=318623
+tv2.tv_usec-tv1.tv_usec=630
+tv1.tv_sec=1503999006, tv1.tv_usec=318628
+tv2.tv_sec=1503999006, tv2.tv_usec=318807
+tv2.tv_usec-tv1.tv_usec=179
+
+
+
+------------------------------------------------------------ DIVIDING LINE ----------------------------------------------------------------------
+why always run process, cpu has idle?
+
+

@@ -1,0 +1,88 @@
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+µ¼³ö·ûºÅ±í£¬ÄÚºËAPI£¬¶¯Ì¬µ÷ÓÃ£¬Á¬½Ó³É¹¦£¬³É¹¦±àÒë
+/**
+ * usleep_range - Drop in replacement for udelay where wakeup is flexible
+ * @min: Minimum time in usecs to sleep
+ * @max: Maximum time in usecs to sleep
+ */
+void usleep_range(unsigned long min, unsigned long max) 
+{
+    __set_current_state(TASK_UNINTERRUPTIBLE);
+    do_usleep_range(min, max);
+}
+EXPORT_SYMBOL(usleep_range);
+
+
+
+
+static unsigned bus_num = 0;
+static unsigned csn = 0;
+static char* sensor = ""; 
+
+module_param(bus_num, uint, S_IRUGO);
+MODULE_PARM_DESC(bus_num, "spi bus number");
+
+module_param(csn, uint, S_IRUGO);
+MODULE_PARM_DESC(csn, "chip select number");
+
+/* some sensor has special dev addr */
+module_param(sensor, charp, S_IRUGO);
+MODULE_PARM_DESC(sensor, "sensor name");
+
+insmod extdrv/sensor_spi.ko sensor=imx117
+
+
+
+
+
+unsigned int outmode[4]={NVP6114_OUT_ALL_720P,NVP6114_OUT_ALL_720P,NVP6114_OUT_ALL_720P,NVP6114_OUT_ALL_720P};
+module_param_array(outmode,  uint, (void *)4, S_IRUGO);
+
+unsigned int vdec_mode = VDEC_NTSC; //0:ntsc, 1: pal
+module_param(vdec_mode, uint, S_IRUGO);
+
+
+
+static char setup_zones[MMZ_SETUP_CMDLINE_LEN]={'\0'};
+module_param_string(mmz, setup_zones, MMZ_SETUP_CMDLINE_LEN, 0600);
+
+static int anony = 0; 
+module_param(anony, int, S_IRUGO);
+
+insmod mmz.ko mmz=anonymous,0,$mmz_start,$mmz_size anony=1 || report_error
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+modinfo
+insmod
+rmmod
+modprobe
+depmod
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/char/hello$ modinfo hello.ko
+filename:       /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/char/hello/hello.ko
+license:        GPL
+depends:        
+vermagic:       3.4.35 mod_unload ARMv5 p2v8 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/char/hello$ 
+
+
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/usb/serial$ modinfo usb_wwan.ko
+filename:       /home/wigewige/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/usb/serial/usb_wwan.ko
+license:        GPL
+version:        v0.7.2
+description:    USB Driver for GSM modems
+author:         Matthias Urlichs <smurf@smurf.noris.de>
+srcversion:     A2D75762B05E76746ECC8F4
+depends:        usbserial
+intree:         Y
+vermagic:       3.4.35 mod_unload ARMv5 p2v8 
+parm:           debug:Debug messages (bool)
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/usb/serial$ 
+wigewige@ubuntu:~/share/develop/Hi3518E_SDK_V1.0.3.0/osdrv/opensource/kernel/linux-3.4.y/drivers/usb/serial$ 
