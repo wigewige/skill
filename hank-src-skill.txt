@@ -1,5 +1,19 @@
 
 
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+Ô­À´»¹ÓÐ¸öautorun.sh½Å±¾£¬Ô­À´ÊÇÔÚÕâÀï°áµÄ£¬¹Ö²»µÃÔÚauto.shºÍrootfs_hi3518ev200/MakefileÏÂÔõÃ´ËÑºÍÕÒ¶¼ÕÒ²»µ½£¬ÔõÃ´ÕÒµÃµ½ÄØ¡£×îºóÍ¨¹ýgrep "usr/sbin" * -r ²ÅÕÒ³öÀ´ÁË¡£ÒÔºó»¹ÊÇÓÃÃüÁîÕÒ£¬²»ÒªÆ¾¾­ÑéÈÏÎªÕÒ£¬¿¿Æ×¡£
+Compress/Server/script/autorun.sh
+
+if [ -d /mnt/flash/Server/usr/sbin ];then
+    mkdir -p /tmp/usr
+    cp -rf /usr/sbin /tmp/usr
+    cp -rf /mnt/flash/Server/usr/sbin /tmp/usr
+    #mount --bind /mnt/flash/Server/usr/sbin /usr/sbin
+    mount --bind /tmp/usr /usr/sbin
+fi
+
+
 
 ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 

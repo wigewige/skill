@@ -1,5 +1,158 @@
 
 
+                                      
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+
+Òì³£Çé¿ö£¬ÓÃ»§µÇÂ¼ºóÖ»ÓÐ3¸ölogged in
+
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ who
+wigewige pts/11       2017-09-23 11:06 (10.0.39.247)
+wigewige :0           2017-09-23 11:07 (:0)
+wigewige pts/12       2017-09-23 11:07 (:0)
+wigewige pts/0        2017-09-23 11:27 (:0)
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ last
+wigewige pts/0        :0               Sat Sep 23 11:27   still logged in   
+wigewige pts/12       :0               Sat Sep 23 11:07   still logged in   
+wigewige :0           :0               Sat Sep 23 11:07   still logged in   
+wigewige pts/11       10.0.39.247      Sat Sep 23 11:06   still logged in   
+reboot   system boot  4.4.0-93-generic Sat Sep 23 11:04 - 11:28  (00:24)    
+wigewige pts/22       10.0.39.247      Sat Sep 23 11:02 - down   (00:02)    
+wigewige pts/0        :0               Sat Sep 23 10:49 - down   (00:14)    
+wigewige pts/7        :0               Sat Sep 23 10:28 - down   (00:35)    
+wigewige :0           :0               Sat Sep 23 10:27 - down   (00:36)    
+reboot   system boot  4.4.0-93-generic Sat Sep 23 10:27 - 11:04  (00:37)    
+wigewige pts/24       10.0.39.247      Sat Sep 23 08:59 - 09:28  (00:29)    
+wigewige pts/22       :0               Fri Sep 22 18:47 - 09:06  (14:18)    
+wigewige pts/5        :0               Fri Sep 22 17:46 - down   (16:40)    
+wigewige pts/0        :0               Fri Sep 22 16:24 - down   (18:01)    
+wigewige :0           :0               Fri Sep 22 16:14 - down   (18:11)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 16:13 - 10:26  (18:12)    
+wigewige pts/10       :0               Fri Sep 22 15:05 - crash  (01:08)    
+wigewige pts/0        :0               Fri Sep 22 14:52 - crash  (01:21)    
+wigewige :0           :0               Fri Sep 22 14:49 - crash  (01:23)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:49 - 10:26  (19:37)    
+wigewige pts/0        :0               Fri Sep 22 14:37 - down   (00:11)    
+wigewige :0           :0               Fri Sep 22 14:36 - down   (00:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:35 - 14:48  (00:13)    
+wigewige pts/14       :0               Thu Sep 21 18:05 - crash  (20:30)    
+wigewige pts/8        :0               Thu Sep 21 14:51 - crash  (23:43)    
+wigewige pts/0        :0               Wed Sep 20 19:43 - crash (1+18:52)   
+wigewige :0           :0               Wed Sep 20 19:40 - crash (1+18:55)   
+reboot   system boot  4.4.0-93-generic Wed Sep 20 19:38 - 14:48 (1+19:10)   
+wigewige pts/0        :0               Wed Sep 20 19:36 - 19:37  (00:00)    
+wigewige pts/0        :0               Mon Sep 18 18:04 - 19:34 (2+01:29)   
+wigewige pts/24       :0               Fri Sep 15 10:57 - 19:34 (5+08:36)   
+wigewige pts/23       :0               Thu Sep 14 14:37 - 11:12  (20:34)    
+wigewige pts/22       :0               Tue Sep 12 17:47 - 16:58 (5+23:10)   
+wigewige pts/22       :0               Tue Sep 12 16:35 - 16:35  (00:00)    
+wigewige pts/9        :0               Tue Sep 12 11:46 - 19:34 (8+07:47)   
+wigewige pts/0        :0               Mon Sep 11 10:41 - 16:58 (7+06:16)   
+wigewige pts/9        :0               Mon Sep 11 09:47 - 09:48  (00:01)    
+wigewige :0           :0               Mon Sep 11 09:47 - down  (9+09:46)   
+reboot   system boot  4.4.0-93-generic Mon Sep 11 09:44 - 19:34 (9+09:49)   
+wigewige pts/6        :0               Fri Sep  8 18:48 - crash (2+14:56)   
+wigewige pts/0        :0               Fri Sep  8 18:47 - crash (2+14:57)   
+wigewige :0           :0               Fri Sep  8 18:42 - crash (2+15:02)   
+reboot   system boot  4.4.0-93-generic Fri Sep  8 17:16 - 19:34 (12+02:17)  
+wigewige :0           :0               Fri Sep  8 12:03 - crash  (05:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep  8 12:00 - 19:34 (12+07:34)  
+wigewige pts/1        :0               Fri Sep  8 11:02 - crash  (00:57)    
+wigewige pts/7        :0               Fri Sep  8 10:55 - crash  (01:05)    
+wigewige :0           :0               Fri Sep  8 10:54 - crash  (01:06)    
+wigewige pts/27       10.0.39.222      Fri Sep  8 10:10 - 10:22  (00:11)    
+wigewige pts/26       :0               Fri Sep  8 10:08 - 10:45  (00:36)    
+wigewige pts/25       :0               Fri Sep  8 09:08 - 10:45  (01:36)    
+wigewige pts/24       :0               Thu Sep  7 15:30 - 10:45  (19:14)    
+wigewige pts/9        :0               Wed Sep  6 09:34 - 10:45 (2+01:10)   
+wigewige pts/24       :0               Wed Sep  6 09:23 - 09:52 (1+00:29)   
+wigewige pts/9        :0               Tue Sep  5 11:16 - 09:25  (22:09)    
+wigewige pts/3        :0               Mon Sep  4 15:39 - 10:45 (3+19:05)   
+
+wtmp begins Mon Sep  4 15:39:32 2017
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+
+
+
+
+
+Õý³£Çé¿ö£¬ÓÃ»§µÇÂ¼ºóÖ»ÓÐÁ½¸ölogged in
+
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ who
+wigewige pts/11       2017-09-23 11:06 (10.0.39.247)
+wigewige :0           2017-09-23 11:07 (:0)
+wigewige pts/12       2017-09-23 11:07 (:0)
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ last
+wigewige pts/12       :0               Sat Sep 23 11:07   still logged in   
+wigewige :0           :0               Sat Sep 23 11:07   still logged in   
+wigewige pts/11       10.0.39.247      Sat Sep 23 11:06   still logged in   
+reboot   system boot  4.4.0-93-generic Sat Sep 23 11:04 - 11:12  (00:07)    
+wigewige pts/22       10.0.39.247      Sat Sep 23 11:02 - down   (00:02)    
+wigewige pts/0        :0               Sat Sep 23 10:49 - down   (00:14)    
+wigewige pts/7        :0               Sat Sep 23 10:28 - down   (00:35)    
+wigewige :0           :0               Sat Sep 23 10:27 - down   (00:36)    
+reboot   system boot  4.4.0-93-generic Sat Sep 23 10:27 - 11:04  (00:37)    
+wigewige pts/24       10.0.39.247      Sat Sep 23 08:59 - 09:28  (00:29)    
+wigewige pts/22       :0               Fri Sep 22 18:47 - 09:06  (14:18)    
+wigewige pts/5        :0               Fri Sep 22 17:46 - down   (16:40)    
+wigewige pts/0        :0               Fri Sep 22 16:24 - down   (18:01)    
+wigewige :0           :0               Fri Sep 22 16:14 - down   (18:11)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 16:13 - 10:26  (18:12)    
+wigewige pts/10       :0               Fri Sep 22 15:05 - crash  (01:08)    
+wigewige pts/0        :0               Fri Sep 22 14:52 - crash  (01:21)    
+wigewige :0           :0               Fri Sep 22 14:49 - crash  (01:23)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:49 - 10:26  (19:37)    
+wigewige pts/0        :0               Fri Sep 22 14:37 - down   (00:11)    
+wigewige :0           :0               Fri Sep 22 14:36 - down   (00:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:35 - 14:48  (00:13)    
+wigewige pts/14       :0               Thu Sep 21 18:05 - crash  (20:30)    
+wigewige pts/8        :0               Thu Sep 21 14:51 - crash  (23:43)    
+wigewige pts/0        :0               Wed Sep 20 19:43 - crash (1+18:52)   
+wigewige :0           :0               Wed Sep 20 19:40 - crash (1+18:55)   
+reboot   system boot  4.4.0-93-generic Wed Sep 20 19:38 - 14:48 (1+19:10)   
+wigewige pts/0        :0               Wed Sep 20 19:36 - 19:37  (00:00)    
+wigewige pts/0        :0               Mon Sep 18 18:04 - 19:34 (2+01:29)   
+wigewige pts/24       :0               Fri Sep 15 10:57 - 19:34 (5+08:36)   
+wigewige pts/23       :0               Thu Sep 14 14:37 - 11:12  (20:34)    
+wigewige pts/22       :0               Tue Sep 12 17:47 - 16:58 (5+23:10)   
+wigewige pts/22       :0               Tue Sep 12 16:35 - 16:35  (00:00)    
+wigewige pts/9        :0               Tue Sep 12 11:46 - 19:34 (8+07:47)   
+wigewige pts/0        :0               Mon Sep 11 10:41 - 16:58 (7+06:16)   
+wigewige pts/9        :0               Mon Sep 11 09:47 - 09:48  (00:01)    
+wigewige :0           :0               Mon Sep 11 09:47 - down  (9+09:46)   
+reboot   system boot  4.4.0-93-generic Mon Sep 11 09:44 - 19:34 (9+09:49)   
+wigewige pts/6        :0               Fri Sep  8 18:48 - crash (2+14:56)   
+wigewige pts/0        :0               Fri Sep  8 18:47 - crash (2+14:57)   
+wigewige :0           :0               Fri Sep  8 18:42 - crash (2+15:02)   
+reboot   system boot  4.4.0-93-generic Fri Sep  8 17:16 - 19:34 (12+02:17)  
+wigewige :0           :0               Fri Sep  8 12:03 - crash  (05:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep  8 12:00 - 19:34 (12+07:34)  
+wigewige pts/1        :0               Fri Sep  8 11:02 - crash  (00:57)    
+wigewige pts/7        :0               Fri Sep  8 10:55 - crash  (01:05)    
+wigewige :0           :0               Fri Sep  8 10:54 - crash  (01:06)    
+wigewige pts/27       10.0.39.222      Fri Sep  8 10:10 - 10:22  (00:11)    
+wigewige pts/26       :0               Fri Sep  8 10:08 - 10:45  (00:36)    
+wigewige pts/25       :0               Fri Sep  8 09:08 - 10:45  (01:36)    
+wigewige pts/24       :0               Thu Sep  7 15:30 - 10:45  (19:14)    
+wigewige pts/9        :0               Wed Sep  6 09:34 - 10:45 (2+01:10)   
+wigewige pts/24       :0               Wed Sep  6 09:23 - 09:52 (1+00:29)   
+wigewige pts/9        :0               Tue Sep  5 11:16 - 09:25  (22:09)    
+wigewige pts/3        :0               Mon Sep  4 15:39 - 10:45 (3+19:05)   
+
+wtmp begins Mon Sep  4 15:39:32 2017
+wigewige@ubuntu:~$ 
+
+
+
+                                      
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 
 wigewige@ubuntu:/var/log$ 
 wigewige@ubuntu:/var/log$ 
