@@ -1,5 +1,293 @@
 
 
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+
+void Thread_NetReqProc(void)
+
+
+	if(0 != pthread_create(&IDofNetReq, NULL, (void *)Thread_NetReqProc, NULL))
+
+
+  int net_request_process(void)
+
+
+  
+    lret = net_request_process();
+    if ( lret < 0 )
+    {		
+        return -1;
+    }
+
+
+
+
+
+					//printf("========== 90 net send sockfd is %d ==========\n",AVnetctl->socfd);
+					cnt = send(AVnetctl->socfd, pSendBuf, sendLength , 0);
+
+
+void xm_net_request_thread(void)
+
+	if(0 != pthread_create(&xm_net_thread, NULL, (void *)xm_net_request_thread, NULL))
+
+
+	ret = xm_start_net_request_module();
+
+
+#elif XM
+	start_xm_server_mode();
+#endif
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+void AudioManage_Action_Set(Hank_AudioCfg_t *stAudioCfg)
+{
+	printf("wigewige %s,%d \n", __FUNCTION__,__LINE__);
+#if HICHIP
+	UINT32 volume = 0x50022c2c;
+	UINT32 address =  0x20050068;
+	char cmd_tmp[32]={0};
+	UINT32 audioInput = stAudioCfg->audioInput;
+#endif
+	
+#if HICHIP
+	int boost = 0;//boost on +26db
+#if ELVISION
+	boost = 1;
+#endif
+	if(hi3516a_board)
+	{
+		volume = 0x00022c2c;//0db
+		address  = 0x201200c8;
+		if(boost)
+		{
+			volume = 0x00021c1c;//-6db
+			volume = volume|0x00000202;//+26db = 20db
+		}
+		else
+			volume = volume&(~0x00000202);
+	}
+	else if(hi3518ev200)
+	{
+		volume = 0x00020000;
+		address  = 0x201200c8;
+		printf("wigewige %s,%d \n", __FUNCTION__,__LINE__);
+	}
+	else if(hi3516cv300)
+	{
+		volume = 0x33404004;
+		address  = 0x113200b8;
+	}
+	else if(hi3519V101) 
+	{
+		volume = 0x33404004;
+		address = 0x120300b8;
+	}
+	
+	if(audioInput < 10)
+	{
+		if(hi3518ev200)
+			volume += ((audioInput*5/3)<<10)+((audioInput*5/3)<<2);
+		else if(hi3516cv300 || hi3519V101)
+			volume += ((audioInput*15/9)<<16)+((audioInput*15/9)<<8);
+		else
+			volume += ((audioInput*2)<<10)+((audioInput*2)<<2); 
+	}
+	
+	sprintf(cmd_tmp,"himm 0x%08x 0x%08x",address,volume);
+	system(cmd_tmp);
+
+	if(hi3516a_board || hi3518ev200){
+		
+		pkghead head;
+		strcpy( head.symbol, "SAUD" );
+		strcpy( head.id, "00000" );
+		send_msg_to_mw(&msg_fifo, &head, stAudioCfg, sizeof(Hank_AudioCfg_t));
+		printf("wigewige %s,%d \n", __FUNCTION__,__LINE__);
+	}
+#endif
+
+}
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————                                                                      
+
+/*	设置音频流的回调函数
+ *  app -->device
+ *  pJsonData：		APP发送过来的json数据（字符串形式）
+ *  				AudioStreamOpt
+					{
+						"WaveFormat":"G711a" string  //编码格式
+						"FrameInterval":int32_t      //帧间隔
+						"FrameRate":int32_t        //采样率
+						"SamplesRate":int32_t        //帧率
+						"BitRate":int32_t		//比特率
+						"InputGain":int32_t          //输入增益
+						"Outputvolume "int32_t      //输出音量
+						"MainStream":boolean        //
+						"SubStream":boolean
+					}
+ *  JsonDataLen：	pJsonData的长度
+ *  pResultData：	回复给app的json数据
+ *  				JSON Format
+					{
+						"FormatErr":true
+						/// or
+						"ReSuc":false
+						/// or
+						"ReSuc":True
+					}
+ *  ResultDataLen: 	返回配置结果的长度*/
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+
+APP设置参数
+
+
+SET JSON
+
+
+	printf("%s\n", pJsonData);
+
+  	VideoRecord = cJSON_Parse(pJsonData);
+	if(!VideoRecord)
+		return 0;
+
+    赋值
+    
+    
+    cJSON_Parse
+	Ipv4Manage_Get_SdInfo_API(&sdStr);
+
+  	VideoRecClose = cJSON_GetObjectItem(VideoRecord, "VideoRecClose");
+	if(VideoRecClose) {
+		cJson_ParseBool(VideoRecClose, &tmp);
+		if(tmp != VideoRecordOpt.VideoRecClose) {
+			VideoRecordOpt.VideoRecClose = tmp;
+			is_changed =1;
+		}
+	}
+
+  	if(is_changed) {
+		glink_video_rec_opt_save();
+	}
+	Ipv4Manage_Set_SdInfo_API(&sdStr);
+	
+	cJSON_Delete(VideoRecord);
+
+
+
+	ResultJson = cJSON_CreateObject();
+	cJSON_AddTrueToObject(ResultJson, "ReSuc");
+	pStr = cJSON_PrintUnformatted(ResultJson);
+	strcpy(pResultData, pStr);
+	*ResultDataLen = strlen(pResultData);
+	free(pStr);
+	cJSON_Delete(ResultJson);
+	
+	return 1;
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+APP获取参数
+
+GET JSON
+
+
+JSON
+
+int32_t Glnk_Get_VideoRecord_Opt_Callback(char * pJsonData, int32_t JsonDataLen, char *pResultData, int32_t *ResultDataLen)
+
+
+生成
+VideoRecord = cJSON_CreateObject();
+
+cJSON_AddFalseToObject(VideoRecord,"VideoRecClose");
+
+
+
+输出
+pStr = cJSON_PrintUnformatted(VideoRecord);
+strcpy(pResultData, pStr);
+printf("pStr = %s\n",pStr);
+free(pStr);
+*ResultDataLen = strlen(pResultData);
+
+销毁
+cJSON_Delete(VideoRecord);
+return 1;
+	
+
+
+/*	配置录像参数的回调函数
+ *  app -->device
+ *  pJsonData：		APP发送过来的json数据（字符串形式）
+ *  				VideoRecordOpt
+					{
+						"CallBack":false //回调函数失败		// If this object exist, there is a callback error.
+						"VideoRecClose": true, 				//录像是否关闭
+						"VideoRecordList":[{...}]     		//这是一个数组，多少个通道需要设置就有多少个Class VideoRecordList
+					}
+
+					VideoRecordList
+					{
+						"Channel": uint8_t,					//通道号			// 1 - 255;
+						"ChannelOpen": boolean, 			//该通道是否支持录像				// 0 : close ; 1 : open;
+						"StreamLvl": [int8_t],  			//码流的等级(主次)				// 0: main stream; 1: substream； 2: subsubstream;
+						"ArmTime":[{...}]					// The same as MotionDetectOptList;
+					}
+ *  JsonDataLen：	pJsonData的长度
+ *  pResultData：	回复给app的json数据
+ *  				VideoRecordRsp
+					{
+						"Channel":int8_t//通道号
+						"ReSuc":true   //设置的返回的结果
+						///////////// or exp
+						"ReSuc":false
+					}
+ *  ResultDataLen: 	返回配置结果的长度*/
+int32_t Glnk_Set_VideoRecord_Opt_Callback(char * pJsonData, int32_t JsonDataLen, char *pResultData, int32_t *ResultDataLen);
+
+
+
+
+
+/*	设置图像配置参数的回调函数
+ *  app -->device
+ *  pJsonData：		APP发送过来的json数据（字符串形式）
+ *  				ImageOpt
+					{
+						"VerticalRotation":boolean //垂直翻转是否打开
+						"HorizontalRotation" boolean //水平翻转是否打开
+						"Lightness":int32_t  //亮度  0--100
+						"Color":int32_t     //色度
+						"Contrast":int32_t   //对比度
+						"Saturation":int32_t //饱和度
+						"SceneMode":string auto, indoor, outdoor //场景模式,分为自动,室内,室外
+						"Infrared":string  day&night, color, baw //红外,分为日夜, 色彩, 黑白
+					}
+ *  JsonDataLen：	pJsonData的长度
+ *  pResultData：	回复给app的json数据
+ *  				JSON Format
+					{
+						"FormatErr":true
+						/// or
+						"ReSuc":false
+						/// or
+						"ReSuc":True
+					}
+ *  ResultDataLen: 	返回配置结果的长度*/
+
+
+
 ——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
 
 改rootfs_hi3518ev200下的networkC.asp没用,因为会在auto编译时被替换

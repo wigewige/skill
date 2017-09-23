@@ -1,0 +1,5 @@
+发邮件至 get@psiphon3.com 获取新版本
+
+https://s3.amazonaws.com/psiphon/web/mjr4-p23r-puwl/zh/download.html#direct
+
+https://psiphon.cn.uptodown.com/windows

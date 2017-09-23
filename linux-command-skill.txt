@@ -1,6 +1,303 @@
 
 
 
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ last
+wigewige pts/24       10.0.39.247      Sat Sep 23 08:59 - 09:28  (00:29)    
+wigewige pts/22       :0               Fri Sep 22 18:47 - 09:06  (14:18)    
+wigewige pts/5        :0               Fri Sep 22 17:46   still logged in   
+wigewige pts/0        :0               Fri Sep 22 16:24   still logged in   
+wigewige :0           :0               Fri Sep 22 16:14   still logged in   
+reboot   system boot  4.4.0-93-generic Fri Sep 22 16:13 - 10:25  (18:11)    
+wigewige pts/10       :0               Fri Sep 22 15:05 - crash  (01:08)    
+wigewige pts/0        :0               Fri Sep 22 14:52 - crash  (01:21)    
+wigewige :0           :0               Fri Sep 22 14:49 - crash  (01:23)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:49 - 10:25  (19:36)    
+wigewige pts/0        :0               Fri Sep 22 14:37 - down   (00:11)    
+wigewige :0           :0               Fri Sep 22 14:36 - down   (00:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:35 - 14:48  (00:13)    
+wigewige pts/14       :0               Thu Sep 21 18:05 - crash  (20:30)    
+wigewige pts/8        :0               Thu Sep 21 14:51 - crash  (23:43)    
+wigewige pts/0        :0               Wed Sep 20 19:43 - crash (1+18:52)   
+wigewige :0           :0               Wed Sep 20 19:40 - crash (1+18:55)   
+reboot   system boot  4.4.0-93-generic Wed Sep 20 19:38 - 14:48 (1+19:10)   
+wigewige pts/0        :0               Wed Sep 20 19:36 - 19:37  (00:00)    
+wigewige pts/0        :0               Mon Sep 18 18:04 - 19:34 (2+01:29)   
+wigewige pts/24       :0               Fri Sep 15 10:57 - 19:34 (5+08:36)   
+wigewige pts/23       :0               Thu Sep 14 14:37 - 11:12  (20:34)    
+wigewige pts/22       :0               Tue Sep 12 17:47 - 16:58 (5+23:10)   
+wigewige pts/22       :0               Tue Sep 12 16:35 - 16:35  (00:00)    
+wigewige pts/9        :0               Tue Sep 12 11:46 - 19:34 (8+07:47)   
+wigewige pts/0        :0               Mon Sep 11 10:41 - 16:58 (7+06:16)   
+wigewige pts/9        :0               Mon Sep 11 09:47 - 09:48  (00:01)    
+wigewige :0           :0               Mon Sep 11 09:47 - down  (9+09:46)   
+reboot   system boot  4.4.0-93-generic Mon Sep 11 09:44 - 19:34 (9+09:49)   
+wigewige pts/6        :0               Fri Sep  8 18:48 - crash (2+14:56)   
+wigewige pts/0        :0               Fri Sep  8 18:47 - crash (2+14:57)   
+wigewige :0           :0               Fri Sep  8 18:42 - crash (2+15:02)   
+reboot   system boot  4.4.0-93-generic Fri Sep  8 17:16 - 19:34 (12+02:17)  
+wigewige :0           :0               Fri Sep  8 12:03 - crash  (05:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep  8 12:00 - 19:34 (12+07:34)  
+wigewige pts/1        :0               Fri Sep  8 11:02 - crash  (00:57)    
+wigewige pts/7        :0               Fri Sep  8 10:55 - crash  (01:05)    
+wigewige :0           :0               Fri Sep  8 10:54 - crash  (01:06)    
+wigewige pts/27       10.0.39.222      Fri Sep  8 10:10 - 10:22  (00:11)    
+wigewige pts/26       :0               Fri Sep  8 10:08 - 10:45  (00:36)    
+wigewige pts/25       :0               Fri Sep  8 09:08 - 10:45  (01:36)    
+wigewige pts/24       :0               Thu Sep  7 15:30 - 10:45  (19:14)    
+wigewige pts/9        :0               Wed Sep  6 09:34 - 10:45 (2+01:10)   
+wigewige pts/24       :0               Wed Sep  6 09:23 - 09:52 (1+00:29)   
+wigewige pts/9        :0               Tue Sep  5 11:16 - 09:25  (22:09)    
+wigewige pts/3        :0               Mon Sep  4 15:39 - 10:45 (3+19:05)   
+
+wtmp begins Mon Sep  4 15:39:32 2017
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ who /var/log/wtmp
+wigewige pts/3        2017-09-04 15:39 (:0)
+wigewige pts/9        2017-09-05 11:16 (:0)
+wigewige pts/24       2017-09-06 09:23 (:0)
+wigewige pts/9        2017-09-06 09:34 (:0)
+wigewige pts/24       2017-09-07 15:30 (:0)
+wigewige pts/25       2017-09-08 09:08 (:0)
+wigewige pts/26       2017-09-08 10:08 (:0)
+wigewige pts/27       2017-09-08 10:10 (10.0.39.222)
+wigewige :0           2017-09-08 10:54 (:0)
+wigewige pts/7        2017-09-08 10:55 (:0)
+wigewige pts/1        2017-09-08 11:02 (:0)
+wigewige :0           2017-09-08 12:03 (:0)
+wigewige :0           2017-09-08 18:42 (:0)
+wigewige pts/0        2017-09-08 18:47 (:0)
+wigewige pts/6        2017-09-08 18:48 (:0)
+wigewige :0           2017-09-11 09:47 (:0)
+wigewige pts/9        2017-09-11 09:47 (:0)
+wigewige pts/0        2017-09-11 10:41 (:0)
+wigewige pts/9        2017-09-12 11:46 (:0)
+wigewige pts/22       2017-09-12 16:35 (:0)
+wigewige pts/22       2017-09-12 17:47 (:0)
+wigewige pts/23       2017-09-14 14:37 (:0)
+wigewige pts/24       2017-09-15 10:57 (:0)
+wigewige pts/0        2017-09-18 18:04 (:0)
+wigewige pts/0        2017-09-20 19:36 (:0)
+wigewige :0           2017-09-20 19:40 (:0)
+wigewige pts/0        2017-09-20 19:43 (:0)
+wigewige pts/8        2017-09-21 14:51 (:0)
+wigewige pts/14       2017-09-21 18:05 (:0)
+wigewige :0           2017-09-22 14:36 (:0)
+wigewige pts/0        2017-09-22 14:37 (:0)
+wigewige :0           2017-09-22 14:49 (:0)
+wigewige pts/0        2017-09-22 14:52 (:0)
+wigewige pts/10       2017-09-22 15:05 (:0)
+wigewige :0           2017-09-22 16:14 (:0)
+wigewige pts/0        2017-09-22 16:24 (:0)
+wigewige pts/5        2017-09-22 17:46 (:0)
+wigewige pts/22       2017-09-22 18:47 (:0)
+wigewige pts/24       2017-09-23 08:59 (10.0.39.247)
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ who
+wigewige :0           2017-09-22 16:14 (:0)
+wigewige pts/0        2017-09-22 16:24 (:0)
+wigewige pts/5        2017-09-22 17:46 (:0)
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ 
+
+                                      
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！蛍護�漾�！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+ 
+last
+who /var/log/wtmp
+who
+lastlog
+w
+users
+
+
+wigewige@ubuntu:/var/log$ w
+ 09:47:07 up 22 min,  2 users,  load average: 0.41, 0.13, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+wigewige :0       :0               09:26   ?xdm?  33.71s  0.08s init --user
+wigewige pts/11   :0               09:27    1.00s  0.13s  0.00s w
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ user
+useradd  userdel  usermod  users    
+wigewige@ubuntu:/var/log$ user
+useradd  userdel  usermod  users    
+wigewige@ubuntu:/var/log$ users
+wigewige wigewige
+
+
+
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ who /var/log/wtmp
+wigewige pts/3        2017-09-04 15:39 (:0)
+wigewige pts/9        2017-09-05 11:16 (:0)
+wigewige pts/24       2017-09-06 09:23 (:0)
+wigewige pts/9        2017-09-06 09:34 (:0)
+wigewige pts/24       2017-09-07 15:30 (:0)
+wigewige pts/25       2017-09-08 09:08 (:0)
+wigewige pts/26       2017-09-08 10:08 (:0)
+wigewige pts/27       2017-09-08 10:10 (10.0.39.222)
+wigewige :0           2017-09-08 10:54 (:0)
+wigewige pts/7        2017-09-08 10:55 (:0)
+wigewige pts/1        2017-09-08 11:02 (:0)
+wigewige :0           2017-09-08 12:03 (:0)
+wigewige :0           2017-09-08 18:42 (:0)
+wigewige pts/0        2017-09-08 18:47 (:0)
+wigewige pts/6        2017-09-08 18:48 (:0)
+wigewige :0           2017-09-11 09:47 (:0)
+wigewige pts/9        2017-09-11 09:47 (:0)
+wigewige pts/0        2017-09-11 10:41 (:0)
+wigewige pts/9        2017-09-12 11:46 (:0)
+wigewige pts/22       2017-09-12 16:35 (:0)
+wigewige pts/22       2017-09-12 17:47 (:0)
+wigewige pts/23       2017-09-14 14:37 (:0)
+wigewige pts/24       2017-09-15 10:57 (:0)
+wigewige pts/0        2017-09-18 18:04 (:0)
+wigewige pts/0        2017-09-20 19:36 (:0)
+wigewige :0           2017-09-20 19:40 (:0)
+wigewige pts/0        2017-09-20 19:43 (:0)
+wigewige pts/8        2017-09-21 14:51 (:0)
+wigewige pts/14       2017-09-21 18:05 (:0)
+wigewige :0           2017-09-22 14:36 (:0)
+wigewige pts/0        2017-09-22 14:37 (:0)
+wigewige :0           2017-09-22 14:49 (:0)
+wigewige pts/0        2017-09-22 14:52 (:0)
+wigewige pts/10       2017-09-22 15:05 (:0)
+wigewige :0           2017-09-22 16:14 (:0)
+wigewige pts/0        2017-09-22 16:24 (:0)
+wigewige pts/5        2017-09-22 17:46 (:0)
+wigewige pts/22       2017-09-22 18:47 (:0)
+wigewige pts/24       2017-09-23 08:59 (10.0.39.247)
+wigewige@ubuntu:/var/log$ 
+
+
+wigewige@ubuntu:/var/log$ who
+wigewige :0           2017-09-22 16:14 (:0)
+wigewige pts/0        2017-09-22 16:24 (:0)
+wigewige pts/5        2017-09-22 17:46 (:0)
+wigewige@ubuntu:/var/log$ 
+
+
+
+wigewige@ubuntu:/var/log$ who
+wigewige :0           2017-09-23 09:26 (:0)
+wigewige pts/11       2017-09-23 09:27 (:0)
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ 
+wigewige@ubuntu:/var/log$ who /var/log/wtmp
+wigewige :0           2017-08-22 13:34 (:0)
+wigewige pts/12       2017-08-22 13:34 (:0)
+wigewige :0           2017-09-08 11:50 (:0)
+wigewige pts/11       2017-09-08 11:50 (:0)
+wigewige :0           2017-09-23 09:26 (:0)
+wigewige pts/11       2017-09-23 09:27 (:0)
+wigewige@ubuntu:/var/log$ 
+
+
+
+                                   
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！蛍護�漾�！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+
+wigewige@ubuntu:/var/log$ last
+wigewige pts/24       10.0.39.247      Sat Sep 23 08:59   still logged in   
+wigewige pts/22       :0               Fri Sep 22 18:47 - 09:06  (14:18)    
+wigewige pts/5        :0               Fri Sep 22 17:46   still logged in   
+wigewige pts/0        :0               Fri Sep 22 16:24   still logged in   
+wigewige :0           :0               Fri Sep 22 16:14   still logged in   
+reboot   system boot  4.4.0-93-generic Fri Sep 22 16:13 - 09:10  (16:56)    
+wigewige pts/10       :0               Fri Sep 22 15:05 - crash  (01:08)    
+wigewige pts/0        :0               Fri Sep 22 14:52 - crash  (01:21)    
+wigewige :0           :0               Fri Sep 22 14:49 - crash  (01:23)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:49 - 09:10  (18:21)    
+wigewige pts/0        :0               Fri Sep 22 14:37 - down   (00:11)    
+wigewige :0           :0               Fri Sep 22 14:36 - down   (00:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep 22 14:35 - 14:48  (00:13)    
+wigewige pts/14       :0               Thu Sep 21 18:05 - crash  (20:30)    
+wigewige pts/8        :0               Thu Sep 21 14:51 - crash  (23:43)    
+wigewige pts/0        :0               Wed Sep 20 19:43 - crash (1+18:52)   
+wigewige :0           :0               Wed Sep 20 19:40 - crash (1+18:55)   
+reboot   system boot  4.4.0-93-generic Wed Sep 20 19:38 - 14:48 (1+19:10)   
+wigewige pts/0        :0               Wed Sep 20 19:36 - 19:37  (00:00)    
+wigewige pts/0        :0               Mon Sep 18 18:04 - 19:34 (2+01:29)   
+wigewige pts/24       :0               Fri Sep 15 10:57 - 19:34 (5+08:36)   
+wigewige pts/23       :0               Thu Sep 14 14:37 - 11:12  (20:34)    
+wigewige pts/22       :0               Tue Sep 12 17:47 - 16:58 (5+23:10)   
+wigewige pts/22       :0               Tue Sep 12 16:35 - 16:35  (00:00)    
+wigewige pts/9        :0               Tue Sep 12 11:46 - 19:34 (8+07:47)   
+wigewige pts/0        :0               Mon Sep 11 10:41 - 16:58 (7+06:16)   
+wigewige pts/9        :0               Mon Sep 11 09:47 - 09:48  (00:01)    
+wigewige :0           :0               Mon Sep 11 09:47 - down  (9+09:46)   
+reboot   system boot  4.4.0-93-generic Mon Sep 11 09:44 - 19:34 (9+09:49)   
+wigewige pts/6        :0               Fri Sep  8 18:48 - crash (2+14:56)   
+wigewige pts/0        :0               Fri Sep  8 18:47 - crash (2+14:57)   
+wigewige :0           :0               Fri Sep  8 18:42 - crash (2+15:02)   
+reboot   system boot  4.4.0-93-generic Fri Sep  8 17:16 - 19:34 (12+02:17)  
+wigewige :0           :0               Fri Sep  8 12:03 - crash  (05:12)    
+reboot   system boot  4.4.0-93-generic Fri Sep  8 12:00 - 19:34 (12+07:34)  
+wigewige pts/1        :0               Fri Sep  8 11:02 - crash  (00:57)    
+wigewige pts/7        :0               Fri Sep  8 10:55 - crash  (01:05)    
+wigewige :0           :0               Fri Sep  8 10:54 - crash  (01:06)    
+wigewige pts/27       10.0.39.222      Fri Sep  8 10:10 - 10:22  (00:11)    
+wigewige pts/26       :0               Fri Sep  8 10:08 - 10:45  (00:36)    
+wigewige pts/25       :0               Fri Sep  8 09:08 - 10:45  (01:36)    
+wigewige pts/24       :0               Thu Sep  7 15:30 - 10:45  (19:14)    
+wigewige pts/9        :0               Wed Sep  6 09:34 - 10:45 (2+01:10)   
+wigewige pts/24       :0               Wed Sep  6 09:23 - 09:52 (1+00:29)   
+wigewige pts/9        :0               Tue Sep  5 11:16 - 09:25  (22:09)    
+wigewige pts/3        :0               Mon Sep  4 15:39 - 10:45 (3+19:05)   
+
+                                     
+
+wigewige@ubuntu:/var/log$ lastlog 
+Username         Port     From             Latest
+root             tty1                      Mon Jun 26 10:43:51 +0800 2017
+daemon                                     **Never logged in**
+bin                                        **Never logged in**
+sys                                        **Never logged in**
+sync                                       **Never logged in**
+games                                      **Never logged in**
+man                                        **Never logged in**
+lp                                         **Never logged in**
+mail                                       **Never logged in**
+news                                       **Never logged in**
+uucp                                       **Never logged in**
+proxy                                      **Never logged in**
+www-data                                   **Never logged in**
+backup                                     **Never logged in**
+list                                       **Never logged in**
+irc                                        **Never logged in**
+gnats                                      **Never logged in**
+nobody                                     **Never logged in**
+libuuid                                    **Never logged in**
+syslog                                     **Never logged in**
+messagebus                                 **Never logged in**
+usbmux                                     **Never logged in**
+dnsmasq                                    **Never logged in**
+avahi-autoipd                              **Never logged in**
+kernoops                                   **Never logged in**
+rtkit                                      **Never logged in**
+saned                                      **Never logged in**
+whoopsie                                   **Never logged in**
+speech-dispatcher                           **Never logged in**
+avahi                                      **Never logged in**
+lightdm                                    **Never logged in**
+colord                                     **Never logged in**
+hplip                                      **Never logged in**
+pulse                                      **Never logged in**
+wigewige         pts/24   10.0.39.247      Sat Sep 23 08:59:09 +0800 2017
+statd                                      **Never logged in**
+guest-lSp5Qs                               **Never logged in**
+sshd                                       **Never logged in**
+guest-8nhD9T                               **Never logged in**
+guest-QJEyb2                               **Never logged in**
+wigewige@ubuntu:/var/log$ 
+
+
+
+
+
 
 ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！蛍護�漾�！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
