@@ -1,6 +1,17 @@
 
 
 
+mount -t nfs -o nolock 10.0.39.245:/home/wigewige-linux/share /mnt/nfs
+
+
+
+mount -t nfs -o nolock 10.0.39.138:/home/wigewige/share/develop /mnt/nfs
+
+
+
+
+
+
 
 ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！蛍護�漾�！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 

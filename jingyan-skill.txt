@@ -1,6 +1,20 @@
 
 
 
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+Èç¹ûIE ÏÔÊ¾NO VIDEO£¬¿´ÏÂÊÇ²»ÊÇÅÅÏß»òsensorÎÊÌâ¡£
+
+~ # cat /mnt/flash/productinfo/deviceid.txt
+Îª----NONE   ÅÅÏßÎÊÌâ£¬ÕýÕý£¬Õý¸º
+Îª
+~ # cat /mnt/flash/productinfo/deviceid.txt 
+DEVICEID V6202IR-IMX122~ #    Õý³£ 
+
+ 
+
+
+
 
 
 

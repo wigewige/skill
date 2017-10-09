@@ -1,5 +1,130 @@
 
 
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+
+————————————————————————————分割线——————————————————————————————————
+
+sudo apt-get remove git
+Reading state information... Done
+The following packages will be REMOVED:
+  git
+  
+
+————————————————————————————分割线——————————————————————————————————
+
+sudo apt-get purge git  
+The following packages will be REMOVED:
+  git*
+0 upgraded, 0 newly installed, 1 to remove and 15 not upgraded.
+After this operation, 0 B of additional disk space will be used.
+
+Purging configuration files for git (1:1.9.1-1ubuntu0.6) ...
+
+
+
+The following packages will be REMOVED:
+  git-man liberror-perl
+0 upgraded, 0 newly installed, 2 to remove and 15 not upgraded.
+After this operation, 1,379 kB disk space will be freed.
+
+
+————————————————————————————分割线——————————————————————————————————
+
+sudo apt-get autoremove 
+Removing git-man (1:1.9.1-1ubuntu0.6) ...
+Removing liberror-perl (0.17-1.1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+
+wigewige@ubuntu:~$ man git
+No manual entry for git
+wigewige@ubuntu:~$ 
+
+
+
+
+wigewige@ubuntu:~$ sudo apt-get remove git
+[sudo] password for wigewige: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages will be REMOVED:
+  git
+0 upgraded, 0 newly installed, 1 to remove and 15 not upgraded.
+After this operation, 20.6 MB disk space will be freed.
+Do you want to continue? [Y/n] 
+(Reading database ... 369893 files and directories currently installed.)
+Removing git (1:1.9.1-1ubuntu0.6) ...
+wigewige@ubuntu:~$ gi
+ginstall-info     gio-querymodules  gipddecode        
+wigewige@ubuntu:~$ gi
+ginstall-info     gio-querymodules  gipddecode        
+wigewige@ubuntu:~$ man git
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ sudo apt-get purge git
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  git-man liberror-perl
+Use 'apt-get autoremove' to remove them.
+The following packages will be REMOVED:
+  git*
+0 upgraded, 0 newly installed, 1 to remove and 15 not upgraded.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] 
+(Reading database ... 369317 files and directories currently installed.)
+Removing git (1:1.9.1-1ubuntu0.6) ...
+Purging configuration files for git (1:1.9.1-1ubuntu0.6) ...
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ man git
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ man git
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ ls
+bak  core  Desktop  Documents  Downloads  examples.desktop  flash  Music  Pictures  Public  share  Templates  Videos
+wigewige@ubuntu:~$ ls
+bak  core  Desktop  Documents  Downloads  examples.desktop  flash  Music  Pictures  Public  share  Templates  Videos
+wigewige@ubuntu:~$ apt-get auto
+autoclean   autoremove  
+wigewige@ubuntu:~$ apt-get auto
+autoclean   autoremove  
+wigewige@ubuntu:~$ apt-get autoremove 
+E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
+E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
+wigewige@ubuntu:~$ sudo apt-get autoremove 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages will be REMOVED:
+  git-man liberror-perl
+0 upgraded, 0 newly installed, 2 to remove and 15 not upgraded.
+After this operation, 1,379 kB disk space will be freed.
+Do you want to continue? [Y/n] 
+(Reading database ... 369316 files and directories currently installed.)
+Removing git-man (1:1.9.1-1ubuntu0.6) ...
+Removing liberror-perl (0.17-1.1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ man git
+No manual entry for git
+wigewige@ubuntu:~$ 
+wigewige@ubuntu:~$ 
+
+
+
+
 ——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
 
 

@@ -1,5 +1,316 @@
 
 
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+Ìí¼ÓGPS OSDÂß¼­
+
+
+//wigewige add in 2017-09-29
+
+
+
+int PTZResp_ErrorReq(int sockfd,int Errcode)
+{
+	tagCMD_HEADR *tagcmdhead_pt;
+	tagPTZ_REPLY_INFO *tagerrorinfo;
+	char *buf = NULL;
+	int len,ret;
+	len = sizeof(tagCMD_HEADR) + sizeof(tagPTZ_REPLY_INFO);
+	buf = malloc(len);
+	if(buf == NULL)
+		return -1;
+	memset(buf,0,len);
+	tagcmdhead_pt = (tagCMD_HEADR *)buf;
+	tagerrorinfo = (tagPTZ_REPLY_INFO *)(buf + sizeof(tagCMD_HEADR)); 
+	memcpy(tagcmdhead_pt->m_StartCode,"INF",3);
+	tagcmdhead_pt->m_PacketNum =  htons(1);
+	tagcmdhead_pt->m_PacketSN =  htons(1);
+	tagcmdhead_pt->m_CmdType = PTZResp;
+	tagcmdhead_pt->m_DateLength =  htonl(sizeof(tagPTZ_REPLY_INFO));
+	tagerrorinfo->m_ErrorCode = htons(Errcode);
+	tagerrorinfo->m_ExtLength= htonl(0);
+	ret = send(sockfd,buf,len,0);
+	free(buf);
+	if(ret != len)
+		return -1;
+	else
+		return 0;
+}
+
+
+							ret = MDScopeInfoSetFun(AVnetctl_tmp, tagMDScopeInfo);
+
+
+
+		pkghead head;
+		ENC_OSD_ST osd;
+		hank_osd_info osd_info;
+		VideoManage_Get_OsdConf_API(0, &osd_info);
+		memset(&osd,0,sizeof(ENC_OSD_ST));
+		memset(&head,0,sizeof(pkghead));
+		osd.area = 0;
+		osd.chn = 0;//default
+		osd.enable = osd_info.text_info[0].enable;
+		osd.startx = osd_info.text_info[0].text_x;
+		osd.starty = osd_info.text_info[0].text_y;
+		osd.mode = ENC_OSDTYPE_TEXT;
+		memcpy(osd.osdcontent.text,lift_osd_show,8);
+		osd.size = osd_info.text_info[0].fontsize;
+	/*	printf("lift %02x %02x %02x %02x %02x %02x %02x\n", osd.osdcontent.text[0], osd.osdcontent.text[1], osd.osdcontent.text[2],
+		 osd.osdcontent.text[3], osd.osdcontent.text[4], osd.osdcontent.text[5], osd.osdcontent.text[6]);*/
+		strcpy( head.symbol, "SOSD" );
+		strcpy( head.id, "00000" );
+		
+		send_msg_to_mw(&msg_fifo, &head, &osd, sizeof(ENC_OSD_ST));
+    
+    
+
+
+	/*set area 0-OSD_TEXT_COUNT*/
+	for(i=0;i<OSD_TEXT_COUNT;i++){
+		memset(&osd,0,sizeof(ENC_OSD_ST));
+		memset(&head,0,sizeof(pkghead));
+		osd.area = i;
+		osd.chn = 0;//default
+		osd.enable = ptr->text_info[i].enable;
+		osd.startx = ptr->text_info[i].text_x;
+		osd.starty = ptr->text_info[i].text_y;
+		osd.mode = ENC_OSDTYPE_TEXT;
+		memcpy(osd.osdcontent.text,ptr->text_info[i].str,OSD_MAX_LEN);
+		osd.size = ptr->text_info[i].fontsize;
+
+
+    		strcpy( head.symbol, "SOSD" );
+		strcpy( head.id, "00000" );
+		
+		ret = send_msg_to_mw(&msg_fifo, &head, &osd, sizeof(ENC_OSD_ST));
+
+
+
+
+
+
+            case SET_OSD_CFG:
+                    WebDebug("\n===== SET_OSD_CFG =====\n");
+                    memset( &webcfg_state, 0, sizeof(webcfg_state) );
+                    memcpy( &osdcfg_local, cBuf + 1, sizeof(osdcfg_local) );
+                    
+                    FunSetOsdCfg( &osdcfg_local );
+                
+                    webcfg_state.cType = SET_OSD_CFG;
+                    webcfg_state.cstate = operate_success;
+
+                    WebDebug("===== SET_OSD_CFG =====\n\n");
+                    break;
+
+
+
+
+
+	{"SOSD",  sizeof(MW_OSD_ST),		(void *)mw_enc_check_osd, get_func_null, (void *)mw_enc_set_osd_api,		  	EN_SOSD},
+  
+  	ret = osd_set(pOsd);
+
+    	//µÚÒ»´Î´´½¨
+		ret = osd_create(pOsd);
+		osd_create_yuv_thread();
+
+    			osd_release(pOsd);
+			osd_create(pOsd);
+
+      				ret = osd_update(pOsd,flag);
+
+              			    s32Ret = HI_MPI_RGN_AttachToChn(RgnHandle, &stChn, &stChnAttr);
+                        
+                        
+
+SINT32 VIDEOMANAGE_Set_OSDText_API( VIDEOMANAGE_OSDTEXT_ST value )
+                        
+                        
+	osd.area = 0;
+	osd.chn = 0;//default
+	osd.enable = value.text_enable;
+	osd.size = value.len;
+	osd.startx = value.start_x;
+	osd.starty = value.start_y;
+	osd.mode = ENC_OSDTYPE_TEXT;
+	strcpy((SINT8 *)osd.osdcontent.text, value.str);
+	osd.size = pOsdCfg->text_config[0].iOsdfont;
+	
+    strcpy( head.symbol, "SOSD" );
+    strcpy( head.id, "00000" );
+
+	ret = send_msg_to_mw(&msg_fifo, &head, &osd, sizeof(ENC_OSD_ST));
+
+
+                        
+
+
+				AFManage_Set_ResetFlag_API(PTZ_C_START);	
+
+int AFManage_Set_ResetFlag_API(unsigned int resetflag)
+{
+	int ret;
+	pkghead head;
+
+	strcpy( head.symbol, "SAFRF" );
+    	strcpy( head.id, "00000" );
+
+	ret = send_msg_to_mw(&msg_fifo, &head, &resetflag, sizeof(resetflag));
+	if(ret < 0)
+	{
+		printf("===>>>send_msg_to_mw failure.\n");
+		return -1;
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+¶¨Î»3519·Ö±æÂÊÇÐ»»µ¼ÖÂÏµÍ³±¼À£ÎÊÌâ
+
+webserver.c
+
+void *HandleClientRequest( void )
+
+void *Thread_WebServer()
+
+        accfd = OpenSession( CLIENT, NAME, CLI_PATH ); //CLIENT:1  SERVER:0
+        if( accfd > 0 )
+        {
+            pthread_create( &ID, NULL, (void *)HandleClientRequest, NULL );
+        }
+
+            if(-1 == pthread_create(&IDofThread, NULL, (void *)Thread_WebServer, NULL))
+
+          int	main(void)
+
+Z:\develop\project\274-decrypt\APP\src   main.c
+
+
+            case GET_NET_CFG:
+
+                                lSendLen = sizeof(netcfg_local) + 1;
+                    if( -1 == send( fd, &lSendLen, sizeof(SINT32), 0 ) )
+
+                                        FunGetNetCfg(&netcfg_local);	
+                    memcpy( cBuf + 1, &netcfg_local, sizeof(netcfg_local) ); 
+ 
+                    if( -1 == send( fd, cBuf, lSendLen, 0 ) )
+
+                    webcfg_state.cType = GET_NET_CFG;
+                    webcfg_state.cstate = operate_success;		
+
+
+
+            case SET_NET_CFG:
+
+                    memcpy(&netcfg_local, cBuf + 1, sizeof(netcfg_local));
+                    
+                    FunSetNetCfg(&netcfg_local);
+
+                    webcfg_state.cType = SET_NET_CFG;
+                    webcfg_state.cstate = operate_success;		
+
+
+
+            case SET_VIDEO_CFG://main h.264 stream
+                    WebDebug("\n===== SET_VIDEO_CFG =====\n");
+                    memset(&webcfg_state,0,sizeof(webcfg_state));
+                    memcpy(&maincfg_local, cBuf + 1, sizeof(maincfg_local));
+
+                    ret = FunSetVideoCfg( &maincfg_local );
+                    if( ret < 0 )
+                    {
+                        webcfg_state.cType = SET_VIDEO_CFG;
+                        webcfg_state.cstate = operate_failure;
+                    }
+                    else
+                    {
+                        webcfg_state.cType = SET_VIDEO_CFG;
+                        webcfg_state.cstate = operate_success;
+                    }
+
+
+
+Z:\develop\project\274-decrypt\APP\websapp
+webserver.c                    
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+IEÉý¼¶Âß¼­
+
+			struct mtd_info_user mtd;
+			struct erase_info_user e;
+
+			mtd_file = "/dev/mtd4";
+			fd_d = open(mtd_file,O_SYNC | O_RDWR);
+			if (fd_d < 0 || ioctl(fd_d, MEMGETINFO, &mtd) < 0) {
+
+			e.length = mtd.erasesize;
+			e.start = 0;
+					printf("erase at 0x%llx\n",(long long)e.start);
+				if (ioctl(fd_d, MEMERASE, &e) < 0) {
+
+        				e.start += mtd.erasesize;
+
+			printf("now write squashfs to flash\n");
+			if(!mtd.erasesize)
+				mtd.erasesize = 64 * 1024;
+
+	numWrite = write(fd_d,&(wp->postData[locWrite]),mtd.erasesize);
+				locWrite += numWrite;
+				numLeft -= numWrite;
+        
+			}
+			close(fd_d);
+
+			system("sync;sync;echo 3 > /proc/sys/vm/drop_caches;sync");
+			sleep(1);
+              
+
+
+
+    printf("stop watchdog ok\n");
+
+
+	if (hank_stop_apps() < 0)
+
+
+	printf("start to kill app here \n");
+  
+  static void killAppForm(webs_t wp, char_t * path, char_t * query)
+  
+	websFormDefine(T("killAppForm"),killAppForm);
+
+
+  	websFormDefine(T("upload"),upldForm);
+
+    	formDefineUpload();
+
+
+    static int initWebs()
+
+    int main(int argc, char** argv)
+    
+     	printf("\n****************************************\n");
+ 	printf("******Welcome to hankvision ipc webs******\n");
+	printf("****************************************\n");
+
+
 ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 
 Ô­À´»¹ÓÐ¸öautorun.sh½Å±¾£¬Ô­À´ÊÇÔÚÕâÀï°áµÄ£¬¹Ö²»µÃÔÚauto.shºÍrootfs_hi3518ev200/MakefileÏÂÔõÃ´ËÑºÍÕÒ¶¼ÕÒ²»µ½£¬ÔõÃ´ÕÒµÃµ½ÄØ¡£×îºóÍ¨¹ýgrep "usr/sbin" * -r ²ÅÕÒ³öÀ´ÁË¡£ÒÔºó»¹ÊÇÓÃÃüÁîÕÒ£¬²»ÒªÆ¾¾­ÑéÈÏÎªÕÒ£¬¿¿Æ×¡£
