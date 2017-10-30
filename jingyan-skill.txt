@@ -3,6 +3,31 @@
 
 ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 
+´®¿ÚÁ¬²»ÉÏ£¬alt+c alt+oÊÔÊÔ¹Ø±ÕÔÙ´ò¿ªÈí¼þ
+¶ÏµçÉè±¸ÊÔÊÔ
+¼ì²éÁ¬½Ó²å¿ÚËÉ¿ª£¬»òÃ»²å½ø¿×£¬»òÏßÐòÃ»¶ÔµØGND
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+
+======== generate update ========
+Compile in update done.
+chown: cannot access '/home/wigewige-linux/share/develop/project/camera-on-car-decrypt/rootfs_hi3516cv300/rootfs_uclibc': No such file or directory
+wigewige-linux@ubuntu:~/share/develop/project/camera-on-car-decrypt$ ls rootfs_hi351
+rootfs_hi3516a/     rootfs_hi3516cv300/ rootfs_hi3518/      rootfs_hi3518ev200/ rootfs_hi351
+
+È¥µôauto.sh½Å±¾ÖÐauthbash " " OK½â¾ö
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
 Èç¹ûIE ÏÔÊ¾NO VIDEO£¬¿´ÏÂÊÇ²»ÊÇÅÅÏß»òsensorÎÊÌâ¡£
 
 ~ # cat /mnt/flash/productinfo/deviceid.txt
@@ -103,6 +128,14 @@ System startup
 ¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
 
 ./auto.sh±¨´í£¬ÕÒ²»µ½rootfs_uclibc
+======== generate update ========
+Compile in update done.
+chown: cannot access '/home/wigewige-linux/share/develop/project/camera-on-car-decrypt/rootfs_hi3516cv300/rootfs_uclibc': No such file or directory
+wigewige-linux@ubuntu:~/share/develop/project/camera-on-car-decrypt$ ls rootfs_hi3516cv300/
+Compress  depends  flash  lib  Makefile  rootfs_uclibc.tar.gz  tftp_files  tmp_image  tools  update_files  update_files_with_no_NetInfo
+wigewige-linux@ubuntu:~/share/develop/project/camera-on-car-decrypt$ 
+
+
 Ô­ÒòÊÇµ±ÐÞ¸ÄÈçhank_sys.hÎÄ¼þºó£¬Ã»ÓÐ¶Ôauto.sh½Å±¾ÖÐcat×öauthbash´¦Àí
 ´¦Àíºó¾Í±àÒëÍ¨¹ýÁË
 === Update file is ready ! ===

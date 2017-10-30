@@ -1,0 +1,193 @@
+
+
+
+
+
+
+5)
+ubuntu dash改为bash
+
+
+sudo dpkg-reconfigure dash
+no
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+sudo apt-get install git
+git init 
+
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+
+ssh-keygen -t rsa -C "email@example.com"
+cat ~/.ssh/id_rsa.pub
+niantie
+
+#ssh -T git@github.com
+git clone https://github.com/wigewige/testgit.git
+
+git add 12345.c
+git status
+git commit -m "hello 1843"
+git log
+
+git checkout -b new_branch  git branch new_branch
+git branch
+git checkout master
+git branch -d ad
+git push origin master
+
+
+git pull
+
+
+
+vi 12345.c
+git add 12345.c 
+git commit -m "2 include"
+
+git push origin master
+
+
+
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+sudo apt-get install nfs-kernel-server nfs-common 
+
+
+id
+
+
+sudo vi /etc/exports 
+
+
+/home/wigewige-linux/share 10.0.39.241(rw,sync,anonuid=1000,anongid=1000,no_subtree_check)
+
+/home/wigewige 10.0.39.241 10.0.39.245(rw,sync,anonuid=1000,anongid=1000,no_subtree_check)
+/home/wigewige *(rw,sync,anonuid=1000,anongid=1000,no_subtree_check)
+/home/wigewige 10.0.39.241(rw,sync,anonuid=1000,anongid=1000,no_subtree_check)
+
+
+sudo /etc/init.d/rpcbind restart                   sudo service rpcbind restart
+
+
+sudo /etc/init.d/nfs-kernel-server restart         sudo service nfs-kernel-server restart
+
+
+OK!
+
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+建立samba
+
+
+sudo apt-get install samba
+
+
+sudo apt-get install vim
+
+
+设置时间
+Time & Date settings
+
+shanghai
+
+
+
+sudo vi /etc/samba/smb.conf
+
+在最底下添加以下几行
+
+[ubuntu-se]
+
+comment = Shared Folder with username andpassword
+
+path = /home/wigewige-linux/
+
+valid users = wigewige-linux
+
+writable = yes
+
+browseable = yes
+
+create mode = 0775
+
+force create mode = 0775
+
+directory mode = 0775
+
+force directory mode = 0775
+
+force user = wigewige-linux
+
+force group = wigewige-linux
+
+available = yes
+
+
+
+sudo smbpasswd -a wigewige
+
+
+sudo service smbd restart
+
+
+OK!
+
+
+
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+设置root 密码
+sudo passwd
+
+
+wigewige@ubuntu:~$ sudo passwd 
+[sudo] password for wigewige: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+wigewige@ubuntu:~$ su -
+Password: 
+root@ubuntu:~# ls
+root@ubuntu:~# 
+
+
+
+
+网络
+
+Edit Connections
+DHCP 手动
+
+
+
+
+根据情况选择是否更新源
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+

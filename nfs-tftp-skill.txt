@@ -2,7 +2,29 @@
 
 
 mount -t nfs -o nolock 10.0.39.245:/home/wigewige-linux/share /mnt/nfs
+cd /mnt/nfs/develop/project/secure-3516cv300-264\+-265\+/hi3516cv300_sdk_app/
+killall sdk_app ;killall sdk_app ;./sdk_app &
 
+
+mount -t nfs -o nolock 10.0.39.245:/home/wigewige-linux/share /mnt/nfs
+cd /mnt/nfs/develop/project/secure-3516cv300-264\+-265\+/APP
+killall hiapp ;./hiapp &
+
+
+
+mount -t nfs -o nolock 10.0.39.245:/home/wigewige-linux/share /mnt/nfs
+cd /mnt/nfs/develop/project/secure-osd-display-camera-on-car/hi3516cv300_sdk_app/
+killall sdk_app ;killall sdk_app ;./sdk_app &
+
+mount -t nfs -o nolock 10.0.39.245:/home/wigewige-linux/share /mnt/nfs
+cd /mnt/nfs/develop/project/secure-osd-display-camera-on-car/APP/
+killall hiapp ;./hiapp &
+
+
+
+
+
+killall sdk_app ;./sdk_app &
 
 
 mount -t nfs -o nolock 10.0.39.138:/home/wigewige/share/develop /mnt/nfs

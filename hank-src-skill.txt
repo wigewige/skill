@@ -1,3 +1,138 @@
+                                                                  
+                                                                  
+                                                                  
+* @function name: VIDEOMANAGE_Set_OSDText_API_ForSdk 
+遮挡报警
+SDK OSD内容设置
+
+时间OSD不要默认关闭  涉及代码和Osdinfo文件
+
+ODScopeInfo文件加进
+Y:\share\develop\project\secure-osd-display-camera-on-car\rootfs_hi3516cv300\Compress\Default_Configs
+目录
+
+实现后端通过HANK SDK设置IPC系统时间
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+报警中心，报警服务器，sdk select接收报警信息，报警触发，发送数据到报警服务器
+
+sdk所在运行的机器即所配的报警服务器（ip）
+报警触发源 - 触发报到报警服务器 -报警服务器转发到sdk - sdk接收后回调给二次开发用户 
+
+
+hank_alarm.c
+AlarmToCenter_FUN
+
+
+			case AI_OBT:   
+				NetAlarm.cType                = AN_OBS;    
+				NetAlarm.data.obstruct.lCh    = htonl( lCh );
+				NetAlarm.data.obstruct.cArea  =  larea ;
+				NetAlarm.data.obstruct.bStart = bStart;
+				break;
+
+        			sockfd = center_connect_API((char *)AServerIPstr,(char *)port,&family,&center,&destlen);
+			ret = sendto( sockfd, &NetAlarm, sizeof(netAlarm_t), 0, (struct sockaddr *)&center, destlen );
+
+      hank_alarm.c
+
+
+
+typedef struct netAlarm {
+    UINT8 cType;
+    UINT8  cLen;
+    UINT16 sID;
+    UINT8  ip[16];
+
+    union {
+        struct {
+            UINT32 lCh;
+            UINT8 bStart;
+            UINT8  cRes[3];
+        } alarm_in, alarm_out, sig_lost,sd_out;
+
+        struct {
+            UINT32 lCh;
+            UINT8 bStart;
+            UINT8  cArea;
+            UINT8  cRes[2];
+        } motion, obstruct;
+    } data;
+} netAlarm_t;
+
+
+
+
+typedef struct{
+    	unsigned char datatype;             
+ 	unsigned char cpackLength;          
+ 	unsigned short cPackID;             
+ 	unsigned char ipaddress[16];        
+    	union{
+        	struct{
+            		unsigned int channel;     
+            		unsigned char input_flag;   
+            		unsigned char res[3];       
+        	}alarm_input;           
+
+        	struct{
+            		unsigned int channel;     
+            		unsigned char move_flag;    
+            		unsigned char area;         
+            		unsigned char res[2];       
+        	}alarm_movedetect;      
+        
+        	struct{
+            		unsigned int channel;     
+            		unsigned char shelter_flag; 
+            		unsigned char area;         
+            		unsigned char res[2];       
+        	}alarm_shelter;         
+        
+        	struct{
+            		unsigned int channel;     
+            		unsigned char lost_flag;    
+            		unsigned char res[3];       
+        	}alarm_videolost;       
+        
+        	struct{
+            		unsigned int channel;     
+            		unsigned char control_flag; 
+            		unsigned char res[3];       
+        	}alarm_voice;           
+        
+        	struct{
+            		unsigned int channel;     
+            		unsigned char control_flag; 
+            		unsigned char res[3];       
+        	}alarm_output;          
+    	}data;
+}NET_ALARM_T;
+
+
+
+
+——————————————————————————————————————————————————————————————分割线————————————————————————————————————————————————————————————————————
+
+接触了网络设置分辨率/帧率/GOP
+接触了系统初始化分辨率\图像质量
+系统初始化创建编码通道
+
+
+SINT32 VideoManage_Set_OsdConf_API( UINT32 stream, hank_osd_info * ptr )
+总的设置所有OSD字符的接口
+
+
+SINT32 VIDEOMANAGE_Set_OSDText_API( VIDEOMANAGE_OSDTEXT_ST value )
+设置文本如通道名、GPS信息的接口
+
+
+SINT32 VIDEOMANAGE_Set_OSDTime_API(VIDEOMANAGE_OSDTIME_ST value)
+设置时间开关和位置的接口
+
 
 
 
