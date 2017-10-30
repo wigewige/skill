@@ -1,6 +1,47 @@
-                                                                  
-                                                                  
-                                                                  
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+²»ÕÒ³öÔ­Òò£¬¶øÖ»¹æ±Ü£¬ÎÊÌâ´úÂë»¹ÔÚÄÇÀï£¬²»ÖªµÀ»áÒýÆð±ðµÄÊ²Ã´ÎÊÌâ£¬ÏÂ´ÎÓÖÊÇÊ²Ã´ÎÊÌâ
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
+¹ØÓÚapp²ÎÊý£¬sdk²ÎÊý£¬ÒªºÃºÃÊáÀíÇå³þÏÂ£¬¸ã»ëÁË
+sdkµÄ²ÎÊý
+	ret = mw_table_element_get(index,sizeof(MD_SCOPE_INFO),(void *)&md_scope_info);
+  ret = mw_table_element_set(index,sizeof(MD_SCOPE_INFO),(void *)&md_scope_info);
+ÊÇ´ÓAPPÄÇ±ß´«¹ýÀ´µÄ                                                                                                                               
+	{"SMDS",  sizeof(ENC_MD_SCOPE_ST),	(void *)mw_enc_check_md_scope, get_func_null, (void *)mw_enc_set_motion_scope_api,	EN_SMDS},
+	MOTION_SCOPE_ST *pMdCfg = (MOTION_SCOPE_ST *)getGlobalVideoInfoAddr(MD_SCOPE_CFG);
+
+  	pMdCfg->iEnable = enable;
+	pMdCfg->iSensitivity = sensitivity;
+
+	saveVideoInfo(MD_SCOPE_CFG);
+
+	strcpy( head.symbol, "SMDS" );
+	strcpy( head.id, "00000" );
+
+	memset(&md_scope, 0, sizeof(md_scope));
+	md_scope.enable = enable;
+	md_scope.sensitivity = sensitivity;
+	memcpy((void *)md_scope.mdScope, (void *)pMdCfg->iMDScope, 18*sizeof(UINT32));
+
+	send_msg_to_mw(&msg_fifo, &head, &md_scope, sizeof(ENC_MD_SCOPE_ST));
+
+
+void *HandleClientRequest( void )  			FunSetMDScopeCfg(&mdscope_local);                  VideoManage_Set_MDInfo_API            SMDS send_msg_to_mw(&msg_fifo, &head, &md_scope, sizeof(ENC_MD_SCOPE_ST));
+
+
+
+
+
+
+¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª·Ö¸îÏß¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
+
 * @function name: VIDEOMANAGE_Set_OSDText_API_ForSdk 
 ÕÚµ²±¨¾¯
 SDK OSDÄÚÈÝÉèÖÃ
